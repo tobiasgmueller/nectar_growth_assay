@@ -1,0 +1,97 @@
+well,microbe,treatment
+A1,bb362,treatment
+B1,bb362,treatment
+C1,bb362,control
+D1,bb362,control
+E1,ec102,treatment
+F1,ec102,treatment
+G1,ec102,treatment
+H1,ec102,treatment
+A2,scc187,treatment
+B2,scc187,treatment
+C2,scc187,control
+D2,scc187,control
+E2,q1f2,treatment
+F2,q1f2,treatment
+G2,q1f2,treatment
+H2,q1f2,treatment
+A3,ec116,treatment
+B3,ec116,treatment
+C3,ec116,control
+D3,ec116,control
+E3,q1b4,treatment
+F3,q1b4,treatment
+G3,q1b4,treatment
+H3,q1b4,treatment
+A4,p. caro,treatment
+B4,p. caro,treatment
+C4,p. caro,control
+D4,p. caro,control
+E4,02-343,treatment
+F4,02-343,treatment
+G4,02-343,treatment
+H4,02-343,treatment
+A5,ec52,treatment
+B5,ec52,treatment
+C5,ec52,control
+D5,ec52,control
+E5,ec124,treatment
+F5,ec124,treatment
+G5,ec124,treatment
+H5,ec124,treatment
+A6,62-268,treatment
+B6,62-268,treatment
+C6,62-268,control
+D6,62-268,control
+E6,11-228,treatment
+F6,11-228,treatment
+G6,11-228,treatment
+H6,11-228,treatment
+A7,ec102,treatment
+B7,ec102,treatment
+C7,ec102,control
+D7,ec102,control
+E7,bb362,treatment
+F7,bb362,treatment
+G7,bb362,treatment
+H7,bb362,treatment
+A8,q1f2,treatment
+B8,q1f2,treatment
+C8,q1f2,control
+D8,q1f2,control
+E8,scc187,treatment
+F8,scc187,treatment
+G8,scc187,treatment
+H8,scc187,treatment
+A9,q1b4,treatment
+B9,q1b4,treatment
+C9,q1b4,control
+D9,q1b4,control
+E9,ec116,treatment
+F9,ec116,treatment
+G9,ec116,treatment
+H9,ec116,treatment
+A10,02-343,treatment
+B10,02-343,treatment
+C10,02-343,control
+D10,02-343,control
+E10,p. caro,treatment
+F10,p. caro,treatment
+G10,p. caro,treatment
+H10,p. caro,treatment
+A11,ec124,treatment
+B11,ec124,treatment
+C11,ec124,control
+D11,ec124,control
+E11,ec52,treatment
+F11,ec52,treatment
+G11,ec52,treatment
+H11,ec52,treatment
+A12,11-228,treatment
+B12,11-228,treatment
+C12,11-228,control
+D12,11-228,control
+E12,62-268,treatment
+F12,62-268,treatment
+G12,62-268,treatment
+H12,62-268,treatment
