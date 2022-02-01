@@ -124,7 +124,7 @@ parm_4mMh2o2$microbe <- as.factor(parm_4mMh2o2$microbe)
 parm_4mMh2o2$plate <- as.factor(parm_4mMh2o2$plate)
   
 
-parm_delta <- read.csv("output/high_deltaline_summary")
+parm_delta <- read.csv("output/high_deltaline_summary.csv")
 parm_delta$plate <- "22 ug/ml deltaline"
 
 parm_delta$treatment <- as.factor(parm_delta$treatment)
@@ -132,7 +132,7 @@ parm_delta$microbe <- as.factor(parm_delta$microbe)
 parm_delta$plate <- as.factor(parm_delta$plate)
 
 
-parm_delta31 <- read.csv("output/high_deltaline_summary31")
+parm_delta31 <- read.csv("output/high_deltaline_summary31.csv")
 parm_delta31$plate <- "22 ug/ml deltaline"
 
 parm_delta31$treatment <- as.factor(parm_delta31$treatment)
