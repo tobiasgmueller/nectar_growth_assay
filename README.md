@@ -13,7 +13,7 @@ contains r code
   + these files are all created and can be found in the output folder
 * "analyze_all.R" takes all the output files created by each treatments code, aggregates them, and analyzes them
 * "cogrowth_cfu_anaylsis.R" analyzes cogrowth assays
-
+* "old_control" folder contains code analyzing data from prelinary data runs that had a different control treatment formulation. (not used in analysis)
 
 ### input
 contains raw data files
