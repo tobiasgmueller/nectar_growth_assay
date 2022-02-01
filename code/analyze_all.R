@@ -9,7 +9,6 @@
 
 # first load packages and all that good stuff
 ### packages ####
-setwd("C:/Users/obiew/Desktop/vannette/growthassay_2021")
 
 library(dplyr)
 library(DescTools)
