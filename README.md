@@ -1,4 +1,6 @@
-# nectar_growth_assay
+# nectar growth assay
+# Tobias Mueller
+
 This repository contains all the data and R code for the 2021 growth assay experiments
 
 
