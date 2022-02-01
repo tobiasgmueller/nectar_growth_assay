@@ -1,0 +1,37 @@
+pair,treatment,Rosenbergiella,Metschnikowia,notes
+p2t1,Control,0,3552,counted 1/4
+p2t1,Control,4,2100,counted 1/4
+p2t1,Control,3,1324,counted 1/4
+p2t1,Control,50,2432,counted 1/4
+p2t1,Control,0,2364,counted 1/4
+p2t1,Control,0,2368,counted 1/4
+p2t2,Deltaline,10,10,
+p2t2,Deltaline,0,5,
+p2t2,Deltaline,0,7,
+p2t2,Deltaline,0,1680,counted 1/4
+p2t2,Deltaline,0,1286,
+p2t2,Deltaline,0,960,counted 1/4
+p2t3,Linalool,0,326,
+p2t3,Linalool,0,300,
+p2t3,Linalool,0,355,
+p2t3,Linalool,0,349,
+p2t3,Linalool,0,333,
+p2t3,Linalool,0,278,
+p2t4,H2O2,10,1616,counted 1/4
+p2t4,H2O2,15,1023,
+p2t4,H2O2,18,888,counted 1/4
+p2t4,H2O2,0,960,counted 1/4
+p2t4,H2O2,0,1176,counted 1/4
+p2t4,H2O2,0,1188,
+p2t5,EtOH,0,1636,counted 1/4
+p2t5,EtOH,0,2000,counted 1/4
+p2t5,EtOH,0,2052,counted 1/4
+p2t5,EtOH,30,1392,counted 1/4
+p2t5,EtOH,10,1596,counted 1/4
+p2t5,EtOH,40,1120,counted 1/4
+P2t6,TSB,100,1204,counted 1/4
+P2t6,TSB,100,1543,
+P2t6,TSB,100,1608,counted 1/4
+P2t6,TSB,100,2192,counted 1/4
+P2t6,TSB,100,2124,counted 1/4
+P2t6,TSB,100,1391,

@@ -1,0 +1,13 @@
+microbe,family,order,class,strain,kingdom
+Aureobasidium pullulans,Dothioraceae,Dothioraceae,Dothioraceae,ec102,yeast
+Rhodotorula fujisanensis,Sporidiobolaceae,Sporidiobolaceae,Microbotryomycetes,11-228,yeast
+Metschnikowia reukaufii,Metschnikowiaceae,Saccharomycetales,Saccharomycetes,ec52,yeast
+Starmerella bombi,unknown ,Saccharomycetales,Saccharomycetes,q1f2,yeast
+Zygosaccharomyces bailii,Saccharomycetaceae,Saccharomycetales,Saccharomycetes,02-343,yeast
+Saccharomyces cerevisiae,Saccharomycetaceae,Saccharomycetales,Saccharomycetes,62-268,yeast
+Bacillus subtilis,Bacillaceae,Bacillales,Bacilli,ec116,Bacteria
+Pectobacterium carotovorum,Pectobacteriaceae,Enterobacterales,Gammaproteobacteria,p. caro,Bacteria
+Rosenbergiella nectarea,Enterobacteriaceae,Enterobacterales,Gammaproteobacteria,ec124,Bacteria
+Pantoea agglomerans,Erwiniaceae,Enterobacterales,Gammaproteobacteria,scc187,Bacteria
+Acinetobacter nectaris,Moraxellaceae,Pseudomonadales,Gammaproteobacteria,bb362,Bacteria
+Pseudomonas mandelii,Pseudomonadaceae,Pseudomonadales,Gammaproteobacteria,q1b4,Bacteria

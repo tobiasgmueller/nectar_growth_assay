@@ -1,0 +1,97 @@
+well,microbe,treatment,type,name
+A1,bb362,treatment,bacteria,A. nectaris
+B1,bb362,treatment,bacteria,A. nectaris
+C1,bb362,control,bacteria,A. nectaris
+D1,bb362,control,bacteria,A. nectaris
+E1,ec102,treatment,yeast,Aureobasidium 
+F1,ec102,treatment,yeast,Aureobasidium 
+G1,ec102,treatment,yeast,Aureobasidium 
+H1,ec102,treatment,yeast,Aureobasidium 
+A2,scc187,treatment,bacteria,Pantoea 
+B2,scc187,treatment,bacteria,Pantoea 
+C2,scc187,control,bacteria,Pantoea 
+D2,scc187,control,bacteria,Pantoea 
+E2,q1f2,treatment,yeast,Starmerella 
+F2,q1f2,treatment,yeast,Starmerella 
+G2,q1f2,treatment,yeast,Starmerella 
+H2,q1f2,treatment,yeast,Starmerella 
+A3,ec116,treatment,bacteria,Bacillus 
+B3,ec116,treatment,bacteria,Bacillus 
+C3,ec116,control,bacteria,Bacillus 
+D3,ec116,control,bacteria,Bacillus 
+E3,q1b4,treatment,bacteria,Pseudomonas 
+F3,q1b4,treatment,bacteria,Pseudomonas 
+G3,q1b4,treatment,bacteria,Pseudomonas 
+H3,q1b4,treatment,bacteria,Pseudomonas 
+A4,p. caro,treatment,bacteria,Pectobacterium 
+B4,p. caro,treatment,bacteria,Pectobacterium 
+C4,p. caro,control,bacteria,Pectobacterium 
+D4,p. caro,control,bacteria,Pectobacterium 
+E4,02-343,treatment,yeast,Zygosaccharomyces 
+F4,02-343,treatment,yeast,Zygosaccharomyces 
+G4,02-343,treatment,yeast,Zygosaccharomyces 
+H4,02-343,treatment,yeast,Zygosaccharomyces 
+A5,ec52,treatment,yeast,Metschnikowia 
+B5,ec52,treatment,yeast,Metschnikowia 
+C5,ec52,control,yeast,Metschnikowia 
+D5,ec52,control,yeast,Metschnikowia 
+E5,ec124,treatment,bacteria,Rosenbergiella 
+F5,ec124,treatment,bacteria,Rosenbergiella 
+G5,ec124,treatment,bacteria,Rosenbergiella 
+H5,ec124,treatment,bacteria,Rosenbergiella 
+A6,62-268,treatment,yeast,Saccharomyces 
+B6,62-268,treatment,yeast,Saccharomyces 
+C6,62-268,control,yeast,Saccharomyces 
+D6,62-268,control,yeast,Saccharomyces 
+E6,11-228,treatment,yeast,Rhodotorula 
+F6,11-228,treatment,yeast,Rhodotorula 
+G6,11-228,treatment,yeast,Rhodotorula 
+H6,11-228,treatment,yeast,Rhodotorula 
+A7,ec102,treatment,yeast,Aureobasidium 
+B7,ec102,treatment,yeast,Aureobasidium 
+C7,ec102,control,yeast,Aureobasidium 
+D7,ec102,control,yeast,Aureobasidium 
+E7,bb362,treatment,bacteria,A. nectaris
+F7,bb362,treatment,bacteria,A. nectaris
+G7,bb362,treatment,bacteria,A. nectaris
+H7,bb362,treatment,bacteria,A. nectaris
+A8,q1f2,treatment,yeast,Starmerella 
+B8,q1f2,treatment,yeast,Starmerella 
+C8,q1f2,control,yeast,Starmerella 
+D8,q1f2,control,yeast,Starmerella 
+E8,scc187,treatment,bacteria,Pantoea 
+F8,scc187,treatment,bacteria,Pantoea 
+G8,scc187,treatment,bacteria,Pantoea 
+H8,scc187,treatment,bacteria,Pantoea 
+A9,q1b4,treatment,bacteria,Pseudomonas 
+B9,q1b4,treatment,bacteria,Pseudomonas 
+C9,q1b4,control,bacteria,Pseudomonas 
+D9,q1b4,control,bacteria,Pseudomonas 
+E9,ec116,treatment,bacteria,Bacillus 
+F9,ec116,treatment,bacteria,Bacillus 
+G9,ec116,treatment,bacteria,Bacillus 
+H9,ec116,treatment,bacteria,Bacillus 
+A10,02-343,treatment,yeast,Zygosaccharomyces 
+B10,02-343,treatment,yeast,Zygosaccharomyces 
+C10,02-343,control,yeast,Zygosaccharomyces 
+D10,02-343,control,yeast,Zygosaccharomyces 
+E10,p. caro,treatment,bacteria,Pectobacterium 
+F10,p. caro,treatment,bacteria,Pectobacterium 
+G10,p. caro,treatment,bacteria,Pectobacterium 
+H10,p. caro,treatment,bacteria,Pectobacterium 
+A11,ec124,treatment,bacteria,Rosenbergiella 
+B11,ec124,treatment,bacteria,Rosenbergiella 
+C11,ec124,control,bacteria,Rosenbergiella 
+D11,ec124,control,bacteria,Rosenbergiella 
+E11,ec52,treatment,yeast,Metschnikowia 
+F11,ec52,treatment,yeast,Metschnikowia 
+G11,ec52,treatment,yeast,Metschnikowia 
+H11,ec52,treatment,yeast,Metschnikowia 
+A12,11-228,treatment,yeast,Rhodotorula 
+B12,11-228,treatment,yeast,Rhodotorula 
+C12,11-228,control,yeast,Rhodotorula 
+D12,11-228,control,yeast,Rhodotorula 
+E12,62-268,treatment,yeast,Saccharomyces 
+F12,62-268,treatment,yeast,Saccharomyces 
+G12,62-268,treatment,yeast,Saccharomyces 
+H12,62-268,treatment,yeast,Saccharomyces 

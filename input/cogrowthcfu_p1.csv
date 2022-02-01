@@ -1,0 +1,37 @@
+pair,treatment,Zygosaccharomyces,Starmarella,notes
+P1t1,Control,0,1888,counted 1/4
+P1t1,Control,0,3688,counted 1/4
+P1t1,Control,0,2712,counted 1/4
+P1t1,Control,0,2378,counted 1/2
+P1t1,Control,0,1392,counted 1/4
+P1t1,Control,,,overflow vial due to fermentation
+P1t2,Deltaline,0,1620,
+P1t2,Deltaline,0,2764,counted 1/4
+P1t2,Deltaline,0,2428,counted 1/4
+P1t2,Deltaline,0,2888,counted 1/4
+P1t2,Deltaline,0,1296,counted 1/4
+P1t2,Deltaline,0,1631,
+P1t3,Linalool,0,453,
+P1t3,Linalool,0,617,
+P1t3,Linalool,0,506,
+P1t3,Linalool,0,633,
+P1t3,Linalool,0,513,
+P1t3,Linalool,0,465,
+P1t4,H2O2,0,2212,counted 1/4
+P1t4,H2O2,0,2792,counted 1/4
+P1t4,H2O2,0,1498,
+P1t4,H2O2,0,1098,
+P1t4,H2O2,0,1782,counted 1/2
+P1t4,H2O2,0,1714,
+P1t5,EtOH,0,1700,counted 1/4
+P1t5,EtOH,0,3076,counted 1/4
+P1t5,EtOH,0,2760,counted 1/4
+P1t5,EtOH,0,1032,counted 1/4
+P1t5,EtOH,0,1614,counted 1/2
+P1t5,EtOH,0,1654,counted 1/2
+P1t6,TSB,0,1007,
+P1t6,TSB,0,686,
+P1t6,TSB,0,1300,
+P1t6,TSB,0,852,
+P1t6,TSB,0,1271,
+P1t6,TSB,0,898,

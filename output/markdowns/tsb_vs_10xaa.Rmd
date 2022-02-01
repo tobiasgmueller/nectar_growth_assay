@@ -1,0 +1,63 @@
+---
+title: "tsb_vs_10xaa"
+author: "Tobias"
+date: "3/8/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r fig.height=15, fig.width=12, echo=FALSE}
+
+
+setwd("C:/Users/obiew/Desktop/vannette/growthassay_2021")
+
+library(grofit)
+library(ggplot2)
+library(gridExtra)
+library(tidyverse)
+library(data.table)
+library(growthcurver)
+
+rm(list = ls())
+
+
+#-------------- Part I -- quick graphing ----------------------------------------------
+
+labels <- read.csv("input/2021labels_tsbtest.csv")
+d <- read.csv("input/tsb_vs_10xaa_test_cleaned.csv")
+d <- rename(d, c("time" = "Time"))
+melt1<-reshape2::melt(d, id.vars = "time", variable.name = "well")
+graph <- merge(melt1, labels, by="well", incomparables=NA)
+graph$microbe <- as.factor(graph$microbe)
+graph$treatment <- as.factor(graph$treatment)
+graph$type <- as.factor(graph$type)
+graph$name <- as.factor(graph$name)
+
+graph$time <- (seq.int(nrow(d)))*15
+
+graph<- graph %>%
+  group_by(well) %>% 
+  mutate(value_adjust=value- first(value))
+
+ggplot(graph, aes(x=time, y=value_adjust, color=treatment)) +
+  geom_point(aes(), alpha=0.5) +
+  facet_wrap(graph$well ~ graph$name, scales = "free_y", ncol = 6) +
+  theme_bw() +
+  labs(title="tsb vs 10xaa")
+```
+
+```{r fig.height=10, fig.width=12, echo=FALSE}
+
+ggplot(graph, aes(x=time, y=value_adjust, color=treatment)) +
+  geom_point(aes(), alpha=0.2) +
+  facet_wrap(graph$microbe ~ graph$name + graph$type, scales = "free_y") +
+  theme_bw() +
+  labs(title="tsb vs 10xaa")
+
+```
+
