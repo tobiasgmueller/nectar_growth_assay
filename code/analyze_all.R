@@ -445,8 +445,8 @@ plot(simoutput)
 
 
 
-test2<-glmer.nb(data=parm_all, 
-      scaled.A ~ type + (1|microbe))
+#test2<-glmer.nb(data=parm_all, 
+#      scaled.A ~ type + (1|microbe))
 # adding the random effect here doesnt change coefficients while increasing AIC
 
 
@@ -595,11 +595,9 @@ treatmentMeans <- treatmentMeans + magic
 
 treatmentMeans
 
-ggsave(file="final_graphs/alphaz_by_treatmentSummary.svg", plot=treatmentMeans, width=180, height=135, units = "mm")
-ggsave(file="final_graphs/alphaz_by_treatmentSummary.png", plot=treatmentMeans, width=8, height=6, units="in", dpi=300, )
+ggsave(file="final_graphs/F1.svg", plot=treatmentMeans, width=180, height=135, units = "mm")
+ggsave(file="final_graphs/F1.png", plot=treatmentMeans, width=8, height=6, units="in", dpi=300, )
 
-pdf("alphaz_by_treatmentSummary.pdf",w=8,h=6)
-treatmentMeans
 dev.off()
 
 
