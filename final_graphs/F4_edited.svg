@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    class="svglite"
    width="510.24pt"
    height="283.46pt"
@@ -14,7 +7,14 @@
    version="1.1"
    id="svg523"
    sodipodi:docname="F4_edited.svg"
-   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata
      id="metadata527">
     <rdf:RDF>
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -37,16 +37,18 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1121"
+     inkscape:window-height="1106"
      id="namedview525"
      showgrid="false"
      inkscape:zoom="1.9449832"
-     inkscape:cx="305.82494"
-     inkscape:cy="223.89802"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:cx="306.17231"
+     inkscape:cy="181.49257"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg523" />
+     inkscape:current-layer="svg523"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt" />
   <defs
      id="defs4">
     <style
@@ -741,35 +743,35 @@
      clip-path="url(#cpMC4wMHw1MTAuMjR8MC4wMHwyODMuNDY=)"
      id="g277">
     <text
-       x="33.54"
-       y="233.57"
+       x="33.540001"
+       y="233.57001"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text243">0.0</text>
     <text
-       x="33.54"
+       x="33.540001"
        y="173.16"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text245">2.5</text>
     <text
-       x="33.54"
+       x="33.540001"
        y="112.74"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text247">5.0</text>
     <text
-       x="33.54"
-       y="52.33"
+       x="33.540001"
+       y="52.330002"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text249">7.5</text>
     <polyline
@@ -801,49 +803,49 @@
        style="stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;"
        id="polyline263" />
     <text
-       x="78.33"
+       x="78.330002"
        y="261.06"
        text-anchor="middle"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="18.14px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="18.139999"
        lengthAdjust="spacingAndGlyphs"
        id="text265">high</text>
     <text
        x="144.03"
        y="261.06"
        text-anchor="middle"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="34.12px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="34.119999"
        lengthAdjust="spacingAndGlyphs"
        id="text267">medium</text>
     <text
        x="209.72"
        y="261.06"
        text-anchor="middle"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="14.39px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="14.39"
        lengthAdjust="spacingAndGlyphs"
        id="text269">low</text>
     <text
        x="144.03"
-       y="274.85"
+       y="274.85001"
        text-anchor="middle"
-       style="font-size: 12.00px; font-family: Arial;"
-       textLength="188.10px"
+       style="font-size:12px;font-family:Arial"
+       textLength="188.10001"
        lengthAdjust="spacingAndGlyphs"
        id="text271">Frequency of Isolation From Nectar</text>
     <text
-       transform="translate(14.57,127.40) rotate(-90)"
+       transform="rotate(-90,70.985,56.415)"
        text-anchor="middle"
-       style="font-size: 12.00px; font-family: Arial;"
-       textLength="140.09px"
+       style="font-size:12px;font-family:Arial"
+       textLength="140.09"
        lengthAdjust="spacingAndGlyphs"
        id="text273">Scaled Impact on Max OD</text>
     <text
        x="15.57"
        y="15.03"
-       style="font-size: 14.00px; font-weight: bold; font-family: Arial;"
-       textLength="7.78px"
+       style="font-weight:bold;font-size:14px;font-family:Arial"
+       textLength="7.7800002"
        lengthAdjust="spacingAndGlyphs"
        id="text275">a</text>
   </g>
@@ -1448,34 +1450,34 @@
      id="g521">
     <text
        x="288.66"
-       y="233.57"
+       y="233.57001"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text487">0.0</text>
     <text
        x="288.66"
-       y="173.57"
+       y="173.57001"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text489">2.5</text>
     <text
        x="288.66"
        y="113.57"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text491">5.0</text>
     <text
        x="288.66"
        y="53.57"
        text-anchor="end"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="13.33px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="13.33"
        lengthAdjust="spacingAndGlyphs"
        id="text493">7.5</text>
     <polyline
@@ -1507,54 +1509,54 @@
        style="stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;"
        id="polyline507" />
     <text
-       x="333.45"
+       x="333.45001"
        y="261.06"
        text-anchor="middle"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="18.14px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="18.139999"
        lengthAdjust="spacingAndGlyphs"
        id="text509">high</text>
     <text
-       x="399.15"
+       x="399.14999"
        y="261.06"
        text-anchor="middle"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="34.12px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="34.119999"
        lengthAdjust="spacingAndGlyphs"
        id="text511">medium</text>
     <text
        x="464.84"
        y="261.06"
        text-anchor="middle"
-       style="font-size: 9.60px; fill: #4D4D4D; font-family: Arial;"
-       textLength="14.39px"
+       style="font-size:9.6px;font-family:Arial;fill:#4d4d4d"
+       textLength="14.39"
        lengthAdjust="spacingAndGlyphs"
        id="text513">low</text>
     <text
-       x="399.15"
-       y="274.85"
+       x="399.14999"
+       y="274.85001"
        text-anchor="middle"
-       style="font-size: 12.00px; font-family: Arial;"
-       textLength="188.10px"
+       style="font-size:12px;font-family:Arial"
+       textLength="188.10001"
        lengthAdjust="spacingAndGlyphs"
        id="text515">Frequency of Isolation From Nectar</text>
     <text
-       transform="translate(269.69,127.40) rotate(-90)"
+       transform="rotate(-90,198.545,-71.145)"
        text-anchor="middle"
-       style="font-size: 12.00px; font-family: Arial;"
-       textLength="163.44px"
+       style="font-size:12px;font-family:Arial"
+       textLength="163.44"
        lengthAdjust="spacingAndGlyphs"
        id="text517">Scaled Impact on Growth Rate</text>
     <text
-       x="272.21"
+       x="272.20999"
        y="15.03"
-       style="font-size: 14.00px; font-weight: bold; font-family: Arial;"
-       textLength="8.55px"
+       style="font-weight:bold;font-size:14px;font-family:Arial"
+       textLength="8.5500002"
        lengthAdjust="spacingAndGlyphs"
        id="text519">b</text>
   </g>
   <g
-     transform="translate(-0.81688987,-2.2934311)"
+     transform="translate(-0.81688987,-0.7934311)"
      id="g406">
     <g
        transform="translate(0.8720614,1.5948608)"
