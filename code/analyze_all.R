@@ -688,8 +688,8 @@ corr_facet<- p + geom_text(
 )
 corr_facet
 
-ggsave(file="final_graphs/corr_facet.svg", plot=corr_facet,width=180, height=135, units = "mm")
-ggsave(file="corr_facet.svg.png", plot=corr_facet, width=8, height=6, units="in", dpi=300, )
+ggsave(file="final_graphs/SF2.svg", plot=corr_facet,width=180, height=135, units = "mm")
+ggsave(file="SF2.svg.png", plot=corr_facet, width=8, height=6, units="in", dpi=300, )
 
 
 
