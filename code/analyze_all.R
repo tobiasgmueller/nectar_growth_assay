@@ -398,20 +398,6 @@ kwtest.mu<- lapply(split(parm_all, parm_all$microbe), function(i){
 kwtest.mu
 
 
-# then lets do a KWT to see if bacteria differ within each treatment and if yeasts differ
-
-kwtest.bac<- lapply(split(parm_bactonly, parm_bactonly$type), function(i){
-  kruskal.test(z.a ~ microbe, data = i)
-})
-kwtest.bac
-
-kwtest.yes<- lapply(split(parm_yeastonly, parm_yeastonly$type), function(i){
-  kruskal.test(z.a ~ microbe, data = i)
-})
-kwtest.yes
-
-
-
 
 
 
