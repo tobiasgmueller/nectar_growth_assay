@@ -565,7 +565,7 @@ treatmentMeans <- ggplot(parm_treatonly, aes(x=plate, y=scaled.A)) +
   geom_hline(yintercept=1)+ 
   geom_errorbar(data=treatmentMM,aes(x=plate, ymin=ymin, ymax=ymax),width=.3, inherit.aes = FALSE)+
   geom_point(data=treatmentMM, aes(y=predicted),color="black", fill="white", shape=21, size=2, stroke=1)+
-  ylab("Scaled Impact on max OD")+
+  ylab("Scaled Impact on Max OD")+
   xlab("Treatment")+
   labs(color="Microbe", fill="Microbe")+
   theme_bw(base_size = 12)+
@@ -596,7 +596,7 @@ g1_free<- ggplot(parm_treatonly, aes(x=plate, y=scaled.A, color=plate, fill=plat
              position= position_jitterdodge(1),
              alpha=.5) +
   geom_hline(yintercept=1)+ 
-  ylab("Scaled impact on max OD")+
+  ylab("Scaled Impact on Max OD")+
   xlab("Treatment")+
   labs(fill ="Treatment", color="Treatment")+
   facet_wrap(~microbe, scales="free", 
@@ -605,12 +605,14 @@ g1_free<- ggplot(parm_treatonly, aes(x=plate, y=scaled.A, color=plate, fill=plat
   scale_color_manual(values = safe_pal)+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
   theme_bw(base_size = 12)+
-  theme(strip.text = element_text(size=10),
+  theme(strip.text = element_text(face = "italic"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
         axis.title.x=element_blank(),
         legend.text = element_text(face = "italic"),
         legend.position = "bottom")
+
+
 
 # scale_color_brewer(palette = "RdBu")+
 #   scale_fill_brewer(palette = "RdBu")+
@@ -625,7 +627,7 @@ g4<- ggplot(parm_treatonly, aes(x=plate, y=scaled.mu, color=plate, fill=plate)) 
   geom_boxplot(aes(), alpha=0.5) +
   geom_point(aes(), size=.5) +
   geom_hline(yintercept=1)+ 
-  ylab("Scaled Impact on Growth rate")+
+  ylab("Scaled Impact on Growth Rate")+
   xlab("Treatment")+
   labs(color = "Treatment", fill="Treatment")+
   facet_wrap(~microbe, scale="free", 
@@ -634,7 +636,8 @@ g4<- ggplot(parm_treatonly, aes(x=plate, y=scaled.mu, color=plate, fill=plate)) 
   theme_bw(base_size = 12)+
   scale_fill_manual(values = safe_pal)+
   scale_color_manual(values = safe_pal)+
-  theme(axis.text.x=element_blank(),
+  theme(strip.text = element_text(face = "italic"),
+        axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
         axis.title.x=element_blank(),
         legend.text = element_text(face = "italic"),
@@ -659,7 +662,10 @@ p<- ggplot(parm_treatonly,
               color="black",
               size=.7) +
   scale_fill_manual(values = safe_pal)+
-  scale_color_manual(values = safe_pal)
+  scale_color_manual(values = safe_pal)+
+  theme(strip.text = element_text(face = "italic"))+ 
+  xlab("Scaled Impact on Growth rate")+
+  ylab("Scaled Impact on Max OD")
 
 
 # add text to each facet
@@ -751,16 +757,16 @@ p1<-ggplot(parm_treatonly, aes(x=rank,y=scaled.A))+
   geom_boxplot()+
   geom_hline(yintercept=1)+
   theme_bw(base_size = 12)+ 
-  ylab("Scaled impact on max OD")+
-  xlab("Frequency of isolation from nectar")+
+  ylab("Scaled Impact on Max OD")+
+  xlab("Frequency of Isolation From Nectar")+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))
 
 p2<-ggplot(parm_treatonly, aes(x=rank,y=scaled.mu))+
   geom_boxplot()+
   geom_hline(yintercept=1)+
   theme_bw(base_size = 12)+ 
-  ylab("Scaled impact on max growth")+
-  xlab("Frequency of isolation from nectar")+
+  ylab("Scaled Impact on Max OD")+
+  xlab("Frequency of Isolation From Nectar")+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))
 
 
@@ -902,7 +908,7 @@ yeast <- ggplot(parm_yeastonly, aes(x=microbe, y=scaled.A, color=microbe, fill=m
   geom_boxplot(aes(), alpha=0.5) +
   geom_point(aes(), size=.5) +
   geom_hline(yintercept=1)+ 
-  ylab("Scaled Impact on max OD")+
+  ylab("Scaled Impact on Max OD")+
   xlab("Treatment")+
   ggtitle("Yeast")+
   labs(color = "Microbes", fill="Microbes")+
@@ -921,7 +927,7 @@ bacteria <- ggplot(parm_bactonly, aes(x=microbe, y=scaled.A, color=microbe, fill
   geom_boxplot(aes(), alpha=0.5) +
   geom_point(aes(), size=.5) +
   geom_hline(yintercept=1)+ 
-  ylab("Scaled Impact on max OD")+
+  ylab("Scaled Impact on Max OD")+
   xlab("Treatment")+
   ggtitle("Bacteria")+
   labs(color = "Microbes", fill="Microbes")+
