@@ -803,6 +803,7 @@ levels(dftest$variable) <- c("Max OD","Growth rate")
 # alpha non scaled faceted by microbe
 g2 <- ggplot(parm_all, aes(x=type, y=A.model, color=type, fill=type)) +
   geom_boxplot(aes(), alpha=0.5) +
+  geom_point(aes(), size=.5) +
   ylab("Maximum OD")+
   xlab("Treatment")+
   labs(fill ="Treatment", color="Treatment")+
@@ -846,7 +847,7 @@ g5 <- ggplot(parm_all, aes(x=type, y=mu.model, color=type, fill=type)) +
   theme_bw(base_size = 12)+
   scale_fill_manual(values = safe_pal)+
   scale_color_manual(values = safe_pal)+
-  theme(strip.text = element_text(face = "italic"),
+  theme(strip.text = element_text(face = "italic", size=9),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
         axis.title.x=element_blank(),

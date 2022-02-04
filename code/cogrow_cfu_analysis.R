@@ -85,8 +85,8 @@ p4.adjust$Rosenbergiella <- (p4$Rosenbergiella*2)
 p4.adjust$Saccharomyces <- (p4$Saccharomyces*200)
 
 solo$cfu.ul<- (solo$cfu*solo$dilution)
-solo$treatment <- "solo"
-solo$type <- "solo"
+solo$treatment <- "Solo"
+solo$type <- "Solo"
 
 
 # raw cfu df
@@ -97,7 +97,7 @@ melt1 <- p1[ -c(5) ]
 melt1<-reshape2::melt(melt1, id=c("pair", "treatment"))
 melt1 <- rename(melt1, c("microbe" = "variable"))
 melt1 <- rename(melt1, c("cfu" = "value"))
-melt1$type <- "co-inoculation"
+melt1$type <- "Co-inoculation"
 
 s <- solo[solo$microbe == "Starmerella" | solo$microbe == "Zygosaccharomyces", ]
 p1_cfu<- bind_rows(melt1, s)
@@ -109,14 +109,14 @@ melt1 <- p1.adjust[ -c(5) ]
 melt1<-reshape2::melt(melt1, id=c("pair", "treatment"))
 melt1 <- rename(melt1, c("microbe" = "variable"))
 melt1 <- rename(melt1, c("cfu.ul" = "value"))
-melt1$type <- "co-inoculation"
+melt1$type <- "Co-inoculation"
 
 s <- solo[solo$microbe == "Starmerella" | solo$microbe == "Zygosaccharomyces", ]
 p1_dil_adjust<- bind_rows(melt1, s)
 p1_dil_adjust<- p1_dil_adjust[ -c(6:8) ]
 p1_dil_adjust$treatment<-as.factor(p1_dil_adjust$treatment)
 p1_dil_adjust <- droplevels(p1_dil_adjust)
-p1_dil_adjust$treatment<- relevel(p1_dil_adjust$treatment, ref="solo")
+p1_dil_adjust$treatment<- relevel(p1_dil_adjust$treatment, ref="Solo")
 
 
 ### P2
@@ -125,7 +125,7 @@ melt2 <- p2[ -c(5) ]
 melt2<-reshape2::melt(melt2, id=c("pair", "treatment"))
 melt2 <- rename(melt2, c("microbe" = "variable"))
 melt2 <- rename(melt2, c("cfu" = "value"))
-melt2$type <- "co-inoculation"
+melt2$type <- "Co-inoculation"
 
 s2 <- solo[solo$microbe == "Metschnikowia" | solo$microbe == "Rosenbergiella", ]
 p2_cfu<- bind_rows(melt2, s2)
@@ -137,7 +137,7 @@ melt2 <- p2.adjust[ -c(5) ]
 melt2<-reshape2::melt(melt2, id=c("pair", "treatment"))
 melt2 <- rename(melt2, c("microbe" = "variable"))
 melt2 <- rename(melt2, c("cfu.ul" = "value"))
-melt2$type <- "co-inoculation"
+melt2$type <- "Co-inoculation"
 
 
 s2 <- solo[solo$microbe == "Metschnikowia" | solo$microbe == "Rosenbergiella", ]
@@ -145,7 +145,7 @@ p2_dil_adjust<- bind_rows(melt2, s2)
 p2_dil_adjust<- p2_dil_adjust[ -c(6:8) ]
 p2_dil_adjust$treatment<-as.factor(p2_dil_adjust$treatment)
 p2_dil_adjust <- droplevels(p2_dil_adjust)
-p2_dil_adjust$treatment<- relevel(p2_dil_adjust$treatment, ref="solo")
+p2_dil_adjust$treatment<- relevel(p2_dil_adjust$treatment, ref="Solo")
 
 
 ### pair 4
@@ -154,7 +154,7 @@ melt4 <- p4[ -c(5) ]
 melt4<-reshape2::melt(melt4, id=c("pair", "treatment"))
 melt4 <- rename(melt4, c("microbe" = "variable"))
 melt4 <- rename(melt4, c("cfu" = "value"))
-melt4$type <- "co-inoculation"
+melt4$type <- "Co-inoculation"
 
 s4 <- solo[solo$microbe == "Saccharomyces" | solo$microbe == "Rosenbergiella", ]
 p4_cfu<- bind_rows(melt4, s4)
@@ -166,23 +166,23 @@ melt4 <- p4.adjust[ -c(5) ]
 melt4<-reshape2::melt(melt4, id=c("pair", "treatment"))
 melt4 <- rename(melt4, c("microbe" = "variable"))
 melt4 <- rename(melt4, c("cfu.ul" = "value"))
-melt4$type <- "co-inoculation"
+melt4$type <- "Co-inoculation"
 
 s4 <- solo[solo$microbe == "Saccharomyces" | solo$microbe == "Rosenbergiella", ]
 p4_dil_adjust<- bind_rows(melt4, s4)
 p4_dil_adjust<- p4_dil_adjust[ -c(6:8) ]
 p4_dil_adjust$treatment<-as.factor(p4_dil_adjust$treatment)
 p4_dil_adjust <- droplevels(p4_dil_adjust)
-p4_dil_adjust$treatment<- relevel(p4_dil_adjust$treatment, ref="solo")
+p4_dil_adjust$treatment<- relevel(p4_dil_adjust$treatment, ref="Solo")
 
 #then lets also make dfs that dont have solo to compare to the control co growths
-p1_dil_adjust2 <- p1_dil_adjust[p1_dil_adjust$treatment != "solo", ]
+p1_dil_adjust2 <- p1_dil_adjust[p1_dil_adjust$treatment != "Solo", ]
 p1_dil_adjust2 <- droplevels(p1_dil_adjust2)
 
-p2_dil_adjust2 <- p2_dil_adjust[p2_dil_adjust$treatment != "solo", ]
+p2_dil_adjust2 <- p2_dil_adjust[p2_dil_adjust$treatment != "Solo", ]
 p2_dil_adjust2 <- droplevels(p2_dil_adjust2)
 
-p4_dil_adjust2 <- p4_dil_adjust[p4_dil_adjust$treatment != "solo", ]
+p4_dil_adjust2 <- p4_dil_adjust[p4_dil_adjust$treatment != "Solo", ]
 p4_dil_adjust2 <- droplevels(p4_dil_adjust2)
 
 #------------------------- END OF DATA PREP
@@ -231,7 +231,7 @@ g1 <- ggplot(p1_cfu, aes(x=treatment, y=cfu, color=microbe)) +
 g2<- ggplot(p1_dil_adjust, aes(x=treatment, y=(log10(cfu.ul+1)),  color=microbe, fill=microbe)) +
   geom_boxplot(aes(), alpha=0.5) +
   geom_hline(yintercept=0)+
-  labs(color = "Microbe pair", fill= "Microbe pair")+
+  labs(color = "Microbe Pair", fill= "Microbe Pair")+
   ylab("Log10 ( CFU/ul +1 )")+
   scale_fill_manual(values = pair1)+
   scale_color_manual(values = pair1)+
@@ -262,7 +262,7 @@ g3 <- ggplot(p2_cfu, aes(x=treatment, y=cfu, color=microbe)) +
 g4 <- ggplot(p2_dil_adjust, aes(x=treatment, y=(log10(cfu.ul+1)), color=microbe, fill=microbe)) +
   geom_boxplot(aes(), alpha=0.5) +
   geom_hline(yintercept=0)+
-  labs(color = "Microbe pair", fill= "Microbe pair")+
+  labs(color = "Microbe Pair", fill= "Microbe Pair")+
   ylab("Log10 ( CFU/ul +1 )")+
   theme_bw(base_size = 15)+
   scale_fill_manual(values = pair2)+
