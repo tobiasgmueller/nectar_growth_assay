@@ -434,6 +434,7 @@ dunnets.cfu4.control<-lapply(split(p4_dil_adjust2, p4_dil_adjust2$microbe), func
 })
 
 
+#### dunn test ####
 # on second thought - I think much more interesting and related to our question
 # is a pairwise comparing each treatment
 # so dunn test with holm correction
@@ -443,6 +444,8 @@ dunn.cfu1<- lapply(split(p1_dil_adjust, p1_dil_adjust$microbe), function(i){
   DunnTest(cfu.ul ~ treatment, data = i, method="holm")
 })
 dunn.cfu1
+
+
 
 
 dunn.cfu2<- lapply(split(p2_dil_adjust, p2_dil_adjust$microbe), function(i){
@@ -457,8 +460,6 @@ dunn.cfu2
 dunn.cfu4<- lapply(split(p4_dil_adjust, p4_dil_adjust$microbe), function(i){
   DunnTest(cfu.ul ~ treatment, data = i, method="holm")
 })
-
-
 
 
 dunn.cfu4
