@@ -664,7 +664,7 @@ p<- ggplot(parm_treatonly,
   scale_fill_manual(values = safe_pal)+
   scale_color_manual(values = safe_pal)+
   theme(strip.text = element_text(face = "italic"))+ 
-  xlab("Scaled Impact on Growth rate")+
+  xlab("Scaled Impact on Growth Rate")+
   ylab("Scaled Impact on Max OD")
 
 
@@ -837,7 +837,7 @@ ggsave(file="SF3.png", plot=g2, width=8, height=6, units="in", dpi=300, )
 g5 <- ggplot(parm_all, aes(x=type, y=mu.model, color=type, fill=type)) +
   geom_boxplot(aes(), alpha=0.5) +
   geom_point(aes(), size=.5) +
-  ylab("Growth rate")+
+  ylab("Growth Rate")+
   xlab("Treatment")+
   labs(color = "Treatment", fill="Treatment")+
   facet_wrap(~microbe, scale="free", 
