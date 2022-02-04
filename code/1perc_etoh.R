@@ -7,7 +7,7 @@
 
 #------------------- setup and packages ---------------------------------------
 
-setwd("C:/Users/obiew/Desktop/vannette/growthassay_2021")
+#setwd("C:/Users/obiew/Desktop/vannette/growthassay_2021")
 
 library(grofit)
 library(ggplot2)
