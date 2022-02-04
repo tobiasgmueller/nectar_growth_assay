@@ -356,13 +356,13 @@ ga2<- ggarrange(g2,g4,g6,
                 common.legend = FALSE, 
                 legend="bottom",  
                 labels=c("a","b","c"),
-                label.x = 0.065,
-                label.y = .985
+                label.x = 0.075,
+                label.y = .98
                 )
   
 ga2
   ggsave(file="final_graphs/F5.svg", plot=ga2, width=180, height=270, units = "mm")
-  ggsave(file="cogrowth_cfu_corrected.png", plot=ga2, width=8, height=8, units="in", dpi=300, )
+#  ggsave(file="cogrowth_cfu_corrected.png", plot=ga2, width=8, height=8, units="in", dpi=300, )
 
 
 
