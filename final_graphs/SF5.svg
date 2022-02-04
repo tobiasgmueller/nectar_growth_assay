@@ -934,7 +934,7 @@
 <polyline points='36.49,294.07 39.48,294.07 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='36.49,275.19 39.48,275.19 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='36.49,256.30 39.48,256.30 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
-<text transform='translate(14.57,179.76) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='140.09px' lengthAdjust='spacingAndGlyphs'>Scaled Impact on max OD</text>
+<text transform='translate(14.57,179.76) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='140.09px' lengthAdjust='spacingAndGlyphs'>Scaled Impact on Max OD</text>
 <rect x='29.33' y='330.18' width='485.07' height='46.52' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
 <text x='35.31' y='357.74' style='font-size: 12.00px; font-family: Arial;' textLength='48.69px' lengthAdjust='spacingAndGlyphs'>Microbes</text>
 <rect x='89.96' y='336.16' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
@@ -1929,7 +1929,7 @@
 <polyline points='552.29,274.06 555.28,274.06 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='552.29,258.81 555.28,258.81 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
 <polyline points='552.29,243.57 555.28,243.57 ' style='stroke-width: 1.16; stroke: #333333; stroke-linecap: butt;' />
-<text transform='translate(524.81,179.76) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='140.09px' lengthAdjust='spacingAndGlyphs'>Scaled Impact on max OD</text>
+<text transform='translate(524.81,179.76) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='140.09px' lengthAdjust='spacingAndGlyphs'>Scaled Impact on Max OD</text>
 <rect x='544.26' y='330.18' width='481.26' height='46.52' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
 <text x='550.23' y='357.74' style='font-size: 12.00px; font-family: Arial;' textLength='48.69px' lengthAdjust='spacingAndGlyphs'>Microbes</text>
 <rect x='604.88' y='336.16' width='17.28' height='17.28' style='stroke-width: 1.16; stroke: none; fill: #FFFFFF;' />
