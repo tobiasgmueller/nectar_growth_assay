@@ -435,7 +435,7 @@ dunnets.cfu4.control<-lapply(split(p4_dil_adjust2, p4_dil_adjust2$microbe), func
 
 
 #### dunn test ####
-# on second thought - I think much more interesting and related to our question
+# what may also be interesting
 # is a pairwise comparing each treatment
 # so dunn test with holm correction
 
