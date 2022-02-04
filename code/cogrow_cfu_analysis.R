@@ -293,7 +293,7 @@ g5<- ggplot(p4_cfu, aes(x=treatment, y=cfu, color=microbe)) +
 g6 <- ggplot(p4_dil_adjust, aes(x=treatment, y=(log10(cfu.ul+1)), color=microbe, fill=microbe)) +
   geom_boxplot(aes(), alpha=0.5) +
   geom_hline(yintercept=0)+
-  labs(color = "Microbe pair", fill= "Microbe pair")+
+  labs(color = "Microbe Pair", fill= "Microbe Pair")+
   ylab("Log10 ( CFU/ul +1 )")+
   theme_bw(base_size = 15)+
   scale_fill_manual(values = pair4)+

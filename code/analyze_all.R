@@ -812,7 +812,7 @@ g2 <- ggplot(parm_all, aes(x=type, y=A.model, color=type, fill=type)) +
   scale_color_manual(values = safe_pal)+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
   theme_bw(base_size = 12)+
-  theme(strip.text = element_text(size=10),
+  theme(strip.text = element_text(face = "italic"),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
         axis.title.x=element_blank(),
@@ -846,7 +846,8 @@ g5 <- ggplot(parm_all, aes(x=type, y=mu.model, color=type, fill=type)) +
   theme_bw(base_size = 12)+
   scale_fill_manual(values = safe_pal)+
   scale_color_manual(values = safe_pal)+
-  theme(axis.text.x=element_blank(),
+  theme(strip.text = element_text(face = "italic"),
+        axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
         axis.title.x=element_blank(),
         legend.text = element_text(face = "italic"),
