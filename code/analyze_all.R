@@ -765,7 +765,7 @@ p2<-ggplot(parm_treatonly, aes(x=rank,y=scaled.mu))+
   geom_boxplot()+
   geom_hline(yintercept=1)+
   theme_bw(base_size = 12)+ 
-  ylab("Scaled Impact on Max OD")+
+  ylab("Scaled Impact on Growth Rate")+
   xlab("Frequency of Isolation From Nectar")+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))
 
