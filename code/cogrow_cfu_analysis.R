@@ -361,7 +361,7 @@ ga2<- ggarrange(g2,g4,g6,
                 )
   
 ga2
-  ggsave(file="final_graphs/F4.svg", plot=ga2, width=180, height=270, units = "mm")
+  ggsave(file="final_graphs/F5.svg", plot=ga2, width=180, height=270, units = "mm")
   ggsave(file="cogrowth_cfu_corrected.png", plot=ga2, width=8, height=8, units="in", dpi=300, )
 
 
