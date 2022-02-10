@@ -22,8 +22,8 @@ contains raw data files
 
 * the files ending in `cleaned.csv` are raw files from plate reader that were cleaned
 * the files ending in `formatted.csv` are outputs from r that formates and adjusts `cleaned.csv` files
-* files called `cogrowth_pX.csv` are the raw data for the 3 pairings of microbes (p1, p2, p4 stand for pair 1, pair 2 ...) Sadly, pair 3 exploded. 
-  * `cogrowth_pX_notsb.csv` are just the same file as above but removing the tsb postivie control treatment (this was deemed not useful)
+* files called `cogrowthcfu_pX.csv` are the raw data for the 3 pairings of microbes (p1, p2, p4 stand for pair 1, pair 2 ...) Sadly, pair 3 exploded. 
+  * `cogrowthcfu_pX_notsb.csv` are just the same file as above but removing the tsb postivie control treatment (this was deemed not useful)
     
 ### output
 contains output csv files from `grofit` r code. These are used in `Analyze_all.R` 
