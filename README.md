@@ -24,7 +24,7 @@ contains raw data files
 * the files ending in `formatted.csv` are outputs from r that formates and adjusts `cleaned.csv` files
     
 ### output
-contains output csv files from `grofit` r code
+contains output csv files from `grofit` r code. These are used in `Analyze_all.R` 
 
 ### final_graphs
 contains the output graphs created in `analyze_all.R` and `cogrowth_cfu_analysis.R`
