@@ -959,8 +959,8 @@ ggsave(file="SF5.png", plot=g3, width=16, height=6, units="in", dpi=300, )
 # okay lets do this whole section again but much better
 yandb<- parm_all %>%
   ggplot() +
-  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=1) +
-  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 2, alpha = .5) +
+  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
+  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
   geom_hline(yintercept=1)+ 
   ylab("Scaled Impact on Max OD")+
   xlab("Kingdom")+
@@ -969,9 +969,10 @@ yandb<- parm_all %>%
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
   theme_bw(base_size = 12)+
   scale_fill_manual(values = safe_pal)+
-  scale_color_manual(values = safe_pal)
+  scale_color_manual(values = safe_pal)+
+  theme(axis.title.x=element_blank())
 yandb
-ggsave(file="final_graphs/SF5_kingdom.svg", plot=yandb, width=360, height=135, units = "mm")
+ggsave(file="final_graphs/SF5_kingdom.svg", plot=yandb, width=200, height=135, units = "mm")
 
 
 parm_all %>%
