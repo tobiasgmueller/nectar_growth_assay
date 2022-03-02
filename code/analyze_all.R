@@ -28,6 +28,7 @@ library(rcartocolor) # for color pallettes
 library(FSA) # for dunn test
 library(DHARMa) # for assumption testing
 library(MASS)# for neg binomial
+library(tidyverse)
 
 rm(list = ls()) # cleans 
 
@@ -955,8 +956,44 @@ ggsave(file="SF5.png", plot=g3, width=16, height=6, units="in", dpi=300, )
 
 
 
+# okay lets do this whole section again but much better
+yandb<- parm_all %>%
+  ggplot() +
+  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=1) +
+  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 2, alpha = .5) +
+  geom_hline(yintercept=1)+ 
+  ylab("Scaled Impact on Max OD")+
+  xlab("Kingdom")+
+  labs(color = "Microbes", fill="Kingdom")+
+  facet_wrap(~type, scales="free")+
+  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
+  theme_bw(base_size = 12)+
+  scale_fill_manual(values = safe_pal)+
+  scale_color_manual(values = safe_pal)
+yandb
+ggsave(file="final_graphs/SF5_kingdom.svg", plot=yandb, width=360, height=135, units = "mm")
 
 
+parm_all %>%
+  ggplot() +
+  geom_boxplot(aes(x=kingdom, y=A.model, fill = kingdom),outlier.shape = NA, size=1) +
+  geom_jitter(aes(x=kingdom, y=A.model, color = microbe), size = 2, alpha = .5) +
+  geom_hline(yintercept=1)+ 
+  ylab("Scaled Impact on Max OD")+
+  xlab("Kingdom")+
+  facet_wrap(~type, scales="free")+
+  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
+  theme_bw(base_size = 12)+
+  scale_fill_manual(values = safe_pal)+
+  scale_color_manual(values = safe_pal)
+
+
+
++
+  theme(axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.x=element_blank(),
+        legend.text = element_text(face = "italic"))
 
 
 
