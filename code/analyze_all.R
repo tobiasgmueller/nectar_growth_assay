@@ -965,7 +965,7 @@ yandb<- parm_all %>%
   ylab("Scaled Impact on Max OD")+
   xlab("Kingdom")+
   labs(color = "Microbes", fill="Kingdom")+
-  facet_wrap(~type, scales="free")+
+  facet_grid(~type, scales="free", margins = TRUE, rows = 2)+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
   theme_bw(base_size = 12)+
   scale_fill_manual(values = safe_pal)+
@@ -990,18 +990,46 @@ parm_all %>%
 
 
 
-+
-  theme(axis.text.x=element_blank(),
-        axis.ticks.x=element_blank(),
-        axis.title.x=element_blank(),
-        legend.text = element_text(face = "italic"))
+
+# itd be nice to have a grouped facet like margins in facet_grid
+
+# lets test this function for that
+
+CreateAllFacet <- function(df, col){
+  df$facet <- df[[col]]
+  temp <- df
+  temp$facet <- "All"
+  merged <-rbind(temp, df)
+  
+  # ensure the facet value is a factor
+  merged[[col]] <- as.factor(merged[[col]])
+  
+  return(merged)
+}
 
 
+df <- CreateAllFacet(parm_all, "type")
+
+ggplot(data=df, aes(x=kingdom,y=scaled.A)) +
+  geom_point(aes(color=type))  +
+  facet_wrap(~ facet) +
+  theme(legend.position = "none")
 
 
-
-
-
+df %>%
+  ggplot() +
+  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
+  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
+  geom_hline(yintercept=1)+ 
+  ylab("Scaled Impact on Max OD")+
+  xlab("Kingdom")+
+  labs(color = "Microbes", fill="Kingdom")+
+  facet_wrap(~facet, scales="free")+
+  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
+  theme_bw(base_size = 12)+
+  scale_fill_manual(values = safe_pal)+
+  scale_color_manual(values = safe_pal)+
+  theme(axis.title.x=element_blank())
 
 
 #### GRAVEYARD #### 
