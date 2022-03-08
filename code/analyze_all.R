@@ -991,14 +991,14 @@ parm_all %>%
 
 
 
-# itd be nice to have a grouped facet like margins in facet_grid
+# itd be nice to have a grouped facet like margins() does in facet_grid
 
 # lets test this function for that
 
 CreateAllFacet <- function(df, col){
   df$facet <- df[[col]]
   temp <- df
-  temp$facet <- "All"
+  temp$facet <- "all"
   merged <-rbind(temp, df)
   
   # ensure the facet value is a factor
@@ -1010,13 +1010,30 @@ CreateAllFacet <- function(df, col){
 
 df <- CreateAllFacet(parm_all, "type")
 
-ggplot(data=df, aes(x=kingdom,y=scaled.A)) +
-  geom_point(aes(color=type))  +
-  facet_wrap(~ facet) +
-  theme(legend.position = "none")
+#interestingly the change to factor isnt working in the function
+df$facet<-as.factor(df$facet)
+
+#then lets make levels same as other graphs
+df$facet <- factor(df$facet, levels = c(
+  "4mM H2O2", 
+  "2mM H2O2", 
+  "100 ng/ml linalool",
+  "150 ug/ml LTP",
+  "30% sugar",
+  "1% EtOH",
+  "22 ug/ml deltaline",
+  "control",
+  "all"
+))
+
+# also for some reason some fool (ahem toby..) make yeast lowercase
+# so lets fix that
 
 
-df %>%
+levels(df$kingdom) <- list(Yeast  = "yeast", Bacteria = "Bacteria")
+
+
+sf5_all<-df %>%
   ggplot() +
   geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
   geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
@@ -1030,6 +1047,23 @@ df %>%
   scale_fill_manual(values = safe_pal)+
   scale_color_manual(values = safe_pal)+
   theme(axis.title.x=element_blank())
+
+ggsave(file="final_graphs/SF5_kingdom_all.svg", plot=sf5_all, width=200, height=135, units = "mm")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #### GRAVEYARD #### 
