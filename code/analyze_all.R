@@ -869,6 +869,109 @@ ggsave(file="SF4.png", plot=g5, width=8, height=6, units="in", dpi=300, )
 
 # then just yeasts and just bacteria
 ##### figure S5 ####
+
+
+# for some reason some fool (ahem toby..) made yeast lowercase
+# so lets fix that
+levels(parm_all$kingdom) <- list(Yeast  = "yeast", Bacteria = "Bacteria")
+
+# okay i was real proud of my graph below with all the facets but its not 
+# as relevant to the point so this is what were going with
+sf5_kingdom<- parm_all %>%
+  ggplot() +
+  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
+  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
+  geom_hline(yintercept=1)+ 
+  ylab("Scaled Impact on Max OD")+
+  xlab("Kingdom")+
+  labs(color = "Microbes", fill="Kingdom")+
+  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
+  theme_bw(base_size = 12)+
+  scale_fill_manual(values = safe_pal)+
+  scale_color_manual(values = safe_pal)+
+  theme(axis.title.x=element_blank())
+sf5_kingdom
+ggsave(file="final_graphs/SF5.svg", plot=sf5_kingdom, width=180, height=135, units = "mm")
+
+
+
+
+# and then also one thats facetted 
+# itd be nice to have a grouped facet like margins() does in facet_grid
+
+# so new function to achieve that
+CreateAllFacet <- function(df, col){
+  df$facet <- df[[col]]
+  temp <- df
+  temp$facet <- "all"
+  merged <-rbind(temp, df)
+  
+  # ensure the facet value is a factor
+  merged[[col]] <- as.factor(merged[[col]])
+  
+  return(merged)
+}
+
+
+df <- CreateAllFacet(parm_all, "type")
+
+# the change to factor isnt working in the function so repeat that
+df$facet<-as.factor(df$facet)
+
+#then lets make levels same as other graphs
+df$facet <- factor(df$facet, levels = c(
+  "4mM H2O2", 
+  "2mM H2O2", 
+  "100 ng/ml linalool",
+  "150 ug/ml LTP",
+  "30% sugar",
+  "1% EtOH",
+  "22 ug/ml deltaline",
+  "control",
+  "all"
+))
+
+levels(df$kingdom) <- list(Yeast  = "yeast", Bacteria = "Bacteria")
+
+
+sf5_all<-df %>%
+  ggplot() +
+  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
+  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
+  geom_hline(yintercept=1)+ 
+  ylab("Scaled Impact on Max OD")+
+  xlab("Kingdom")+
+  labs(color = "Microbes", fill="Kingdom")+
+  facet_wrap(~facet, scales="free")+
+  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
+  theme_bw(base_size = 12)+
+  scale_fill_manual(values = safe_pal)+
+  scale_color_manual(values = safe_pal)+
+  theme(axis.title.x=element_blank())
+sf5_all
+ggsave(file="final_graphs/SF5_kingdom_all.svg", plot=sf5_all, width=200, height=135, units = "mm")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### GRAVEYARD #### 
+# old code below
+
+
+#### old sf5 ####
 yeast_pallette <- c("#DDCC77", #metsch
                     "#332288", #aureo
                     "#44AA99", # starmerella
@@ -956,118 +1059,10 @@ ggsave(file="SF5.png", plot=g3, width=16, height=6, units="in", dpi=300, )
 
 
 
-# okay lets do this whole section again but much better
-yandb<- parm_all %>%
-  ggplot() +
-  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
-  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
-  geom_hline(yintercept=1)+ 
-  ylab("Scaled Impact on Max OD")+
-  xlab("Kingdom")+
-  labs(color = "Microbes", fill="Kingdom")+
-  facet_grid(~type, scales="free", margins = TRUE, rows = 2)+
-  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
-  theme_bw(base_size = 12)+
-  scale_fill_manual(values = safe_pal)+
-  scale_color_manual(values = safe_pal)+
-  theme(axis.title.x=element_blank())
-yandb
-ggsave(file="final_graphs/SF5_kingdom.svg", plot=yandb, width=200, height=135, units = "mm")
-
-
-parm_all %>%
-  ggplot() +
-  geom_boxplot(aes(x=kingdom, y=A.model, fill = kingdom),outlier.shape = NA, size=1) +
-  geom_jitter(aes(x=kingdom, y=A.model, color = microbe), size = 2, alpha = .5) +
-  geom_hline(yintercept=1)+ 
-  ylab("Scaled Impact on Max OD")+
-  xlab("Kingdom")+
-  facet_wrap(~type, scales="free")+
-  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
-  theme_bw(base_size = 12)+
-  scale_fill_manual(values = safe_pal)+
-  scale_color_manual(values = safe_pal)
 
 
 
 
-# itd be nice to have a grouped facet like margins() does in facet_grid
-
-# lets test this function for that
-
-CreateAllFacet <- function(df, col){
-  df$facet <- df[[col]]
-  temp <- df
-  temp$facet <- "all"
-  merged <-rbind(temp, df)
-  
-  # ensure the facet value is a factor
-  merged[[col]] <- as.factor(merged[[col]])
-  
-  return(merged)
-}
-
-
-df <- CreateAllFacet(parm_all, "type")
-
-#interestingly the change to factor isnt working in the function
-df$facet<-as.factor(df$facet)
-
-#then lets make levels same as other graphs
-df$facet <- factor(df$facet, levels = c(
-  "4mM H2O2", 
-  "2mM H2O2", 
-  "100 ng/ml linalool",
-  "150 ug/ml LTP",
-  "30% sugar",
-  "1% EtOH",
-  "22 ug/ml deltaline",
-  "control",
-  "all"
-))
-
-# also for some reason some fool (ahem toby..) make yeast lowercase
-# so lets fix that
-
-
-levels(df$kingdom) <- list(Yeast  = "yeast", Bacteria = "Bacteria")
-
-
-sf5_all<-df %>%
-  ggplot() +
-  geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
-  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
-  geom_hline(yintercept=1)+ 
-  ylab("Scaled Impact on Max OD")+
-  xlab("Kingdom")+
-  labs(color = "Microbes", fill="Kingdom")+
-  facet_wrap(~facet, scales="free")+
-  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
-  theme_bw(base_size = 12)+
-  scale_fill_manual(values = safe_pal)+
-  scale_color_manual(values = safe_pal)+
-  theme(axis.title.x=element_blank())
-
-ggsave(file="final_graphs/SF5_kingdom_all.svg", plot=sf5_all, width=200, height=135, units = "mm")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### GRAVEYARD #### 
-# old code below
 
 ##### OLD -figure S2 ####
 g_combo<- ggplot(dftest, aes(x=plate, y=value, fill=variable, color=variable))+
