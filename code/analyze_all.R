@@ -893,7 +893,7 @@ sf5_kingdom<- parm_all %>%
 sf5_kingdom
 ggsave(file="final_graphs/SF5.svg", plot=sf5_kingdom, width=180, height=135, units = "mm")
 
-
+ggsave(file="final_graphs/SF5.eps", plot=sf5_kingdom, width=180, height=135, units = "mm")
 
 
 # and then also one thats facetted 
