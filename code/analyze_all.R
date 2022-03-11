@@ -29,6 +29,7 @@ library(FSA) # for dunn test
 library(DHARMa) # for assumption testing
 library(MASS)# for neg binomial
 library(tidyverse)
+library(stringr) # make legend names on 2 lines
 
 rm(list = ls()) # cleans 
 
@@ -880,7 +881,7 @@ levels(parm_all$kingdom) <- list(Yeast  = "yeast", Bacteria = "Bacteria")
 sf5_kingdom<- parm_all %>%
   ggplot() +
   geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
-  geom_jitter(aes(x=kingdom, y=scaled.A, color = microbe), size = 1.8, alpha = .5) +
+  geom_jitter(aes(x=kingdom, y=scaled.A, color=str_wrap(microbe,15)), size = 1.8, alpha = .5) +
   geom_hline(yintercept=1)+ 
   ylab("Scaled Impact on Max OD")+
   xlab("Kingdom")+
@@ -893,8 +894,31 @@ sf5_kingdom<- parm_all %>%
 sf5_kingdom
 ggsave(file="final_graphs/SF5.svg", plot=sf5_kingdom, width=180, height=135, units = "mm")
 
-ggsave(file="final_graphs/SF5.eps", plot=sf5_kingdom, width=180, height=135, units = "mm")
 
+# then lets also do a non scaled graph
+sf5_noscale <- parm_all %>%
+  ggplot() +
+  geom_boxplot(aes(x=kingdom, y=A.model, fill = kingdom),outlier.shape = NA, size=.7) +
+  geom_jitter(aes(x=kingdom, y=A.model, color = str_wrap(microbe, 15)), size = 1.8, alpha = .5) +
+  geom_hline(yintercept=1)+ 
+  ylab("Max OD")+
+  xlab("Kingdom")+
+  labs(color = "Microbes", fill="Kingdom")+
+  scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
+  theme_bw(base_size = 12)+
+  scale_fill_manual(values = safe_pal)+
+  scale_color_manual(values = safe_pal)+
+  theme(axis.title.x=element_blank())
+sf5_noscale
+
+
+
+
+sf5 <- ggarrange(sf5_kingdom, sf5_noscale,labels=c("a","b"), hjust=-2, 
+          common.legend = TRUE,
+          legend = "bottom")
+
+ggsave(file="final_graphs/SF5.svg", plot=sf5, width=180, height=135, units = "mm")
 
 # and then also one thats facetted 
 # itd be nice to have a grouped facet like margins() does in facet_grid
