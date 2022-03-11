@@ -586,6 +586,8 @@ treatmentMeans
 ggsave(file="final_graphs/F1.svg", plot=treatmentMeans, width=180, height=135, units = "mm")
 ggsave(file="final_graphs/F1.png", plot=treatmentMeans, width=8, height=6, units="in", dpi=300, )
 
+ggsave("final_graphs/F1.eps", plot=treatmentMeans, device=cairo_ps, fallback_resolution = 600)
+
 dev.off()
 
 
@@ -888,9 +890,10 @@ sf5_kingdom<- parm_all %>%
   labs(color = "Microbes", fill="Kingdom")+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
   theme_bw(base_size = 12)+
-  scale_fill_manual(values = safe_pal)+
+  scale_fill_manual(values = safe_pal, guide = "none")+
   scale_color_manual(values = safe_pal)+
-  theme(axis.title.x=element_blank())
+  theme(axis.title.x=element_blank(),
+        legend.text = element_text(face = "italic"))
 sf5_kingdom
 ggsave(file="final_graphs/SF5.svg", plot=sf5_kingdom, width=180, height=135, units = "mm")
 
@@ -906,19 +909,20 @@ sf5_noscale <- parm_all %>%
   labs(color = "Microbes", fill="Kingdom")+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))+
   theme_bw(base_size = 12)+
-  scale_fill_manual(values = safe_pal)+
+  scale_fill_manual(values = safe_pal, guide = "none")+
   scale_color_manual(values = safe_pal)+
-  theme(axis.title.x=element_blank())
+  theme(axis.title.x=element_blank(),
+        legend.text = element_text(face = "italic"))
 sf5_noscale
 
 
 
 
-sf5 <- ggarrange(sf5_kingdom, sf5_noscale,labels=c("a","b"), hjust=-2, 
+sf5 <- ggarrange(sf5_noscale, sf5_kingdom, labels=c("a","b"), hjust=-2, 
           common.legend = TRUE,
           legend = "bottom")
 
-ggsave(file="final_graphs/SF5.svg", plot=sf5, width=180, height=135, units = "mm")
+ggsave(file="final_graphs/SF5.svg", plot=sf5, width=200, height=135, units = "mm")
 
 # and then also one thats facetted 
 # itd be nice to have a grouped facet like margins() does in facet_grid
