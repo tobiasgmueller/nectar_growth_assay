@@ -29,6 +29,7 @@ library(DescTools)
 library(viridis)
 library(reshape2)
 library(ggpubr)
+library(stringr) # to make graph labels
  
 ### read in data and clean ####
 
@@ -85,7 +86,7 @@ p4.adjust$Rosenbergiella <- (p4$Rosenbergiella*2)
 p4.adjust$Saccharomyces <- (p4$Saccharomyces*200)
 
 solo$cfu.ul<- (solo$cfu*solo$dilution)
-solo$treatment <- "Solo"
+solo$treatment <- "Control"
 solo$type <- "Solo"
 
 
@@ -232,7 +233,7 @@ g2<- ggplot(p1_dil_adjust, aes(x=treatment, y=(log10(cfu.ul+1)),  color=microbe,
   geom_boxplot(aes(), alpha=0.5) +
   geom_hline(yintercept=0)+
   labs(color = "Microbe Pair", fill= "Microbe Pair")+
-  ylab("Log10 ( CFU/ul +1 )")+
+  ylab((''*Log[10]~ '(CFU /'~ mu*' + 1)'))+
   scale_fill_manual(values = pair1)+
   scale_color_manual(values = pair1)+
   theme_bw(base_size = 15)+
@@ -263,7 +264,7 @@ g4 <- ggplot(p2_dil_adjust, aes(x=treatment, y=(log10(cfu.ul+1)), color=microbe,
   geom_boxplot(aes(), alpha=0.5) +
   geom_hline(yintercept=0)+
   labs(color = "Microbe Pair", fill= "Microbe Pair")+
-  ylab("Log10 ( CFU/ul +1 )")+
+  ylab((''*Log[10]~ '(CFU /'~ mu*' + 1)'))+
   theme_bw(base_size = 15)+
   scale_fill_manual(values = pair2)+
   scale_color_manual(values = pair2)+
@@ -294,7 +295,7 @@ g6 <- ggplot(p4_dil_adjust, aes(x=treatment, y=(log10(cfu.ul+1)), color=microbe,
   geom_boxplot(aes(), alpha=0.5) +
   geom_hline(yintercept=0)+
   labs(color = "Microbe Pair", fill= "Microbe Pair")+
-  ylab("Log10 ( CFU/ul +1 )")+
+  ylab((''*Log[10]~ '(CFU /'~ mu*' + 1)'))+
   theme_bw(base_size = 15)+
   scale_fill_manual(values = pair4)+
   scale_color_manual(values = pair4)+
@@ -303,10 +304,16 @@ g6 <- ggplot(p4_dil_adjust, aes(x=treatment, y=(log10(cfu.ul+1)), color=microbe,
   theme(axis.title.x=element_blank(),
         legend.text = element_text(face = "italic"))
 
+
+  
 #grid.arrange(g5,g6)
 
 
+str_c()
 
+expression(mu)
+
+str_c(expression(mu),"test")
 
 
 # graph just solo growth
@@ -356,8 +363,8 @@ ga2<- ggarrange(g2,g4,g6,
                 common.legend = FALSE, 
                 legend="bottom",  
                 labels=c("a","b","c"),
-                label.x = 0.075,
-                label.y = .98
+                label.x = 0.081,
+                label.y = .97
                 )
   
 ga2
