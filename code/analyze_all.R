@@ -584,9 +584,7 @@ treatmentMeans <- treatmentMeans + magic
 treatmentMeans
 
 ggsave(file="final_graphs/F1.svg", plot=treatmentMeans, width=180, height=135, units = "mm")
-ggsave(file="final_graphs/F1.png", plot=treatmentMeans, width=8, height=6, units="in", dpi=300, )
-
-ggsave("final_graphs/F1.eps", plot=treatmentMeans, device=cairo_ps, fallback_resolution = 600)
+ggsave(file="final_graphs/F1.pdf", plot=treatmentMeans, width=180, height=135, units = "mm")
 
 dev.off()
 
@@ -623,8 +621,7 @@ g1_free<- ggplot(parm_treatonly, aes(x=plate, y=scaled.A, color=plate, fill=plat
 
 g1_free
 ggsave(file="final_graphs/F2.svg", plot=g1_free, width=180, height=135, units = "mm")
-ggsave(file="F2.png", plot=g1_free, width=8, height=6, units="in", dpi=300, )
-
+ggsave(file="final_graphs/F2.pdf", plot=g1_free, width=180, height=135, units = "mm")
 
 ##### figure 3 ####
 g4<- ggplot(parm_treatonly, aes(x=plate, y=scaled.mu, color=plate, fill=plate)) +
@@ -649,7 +646,7 @@ g4<- ggplot(parm_treatonly, aes(x=plate, y=scaled.mu, color=plate, fill=plate)) 
 g4
 
 ggsave(file="final_graphs/F3.svg", plot=g4,width=180, height=135, units = "mm")
-ggsave(file="F3.png", plot=g4, width=8, height=6, units="in", dpi=300, )
+ggsave(file="final_graphs/F3.pdf", plot=g4,width=180, height=135, units = "mm")
 
 
 
@@ -693,7 +690,7 @@ corr_facet<- p + geom_text(
 corr_facet
 
 ggsave(file="final_graphs/SF2.svg", plot=corr_facet,width=180, height=135, units = "mm")
-ggsave(file="SF2.svg.png", plot=corr_facet, width=8, height=6, units="in", dpi=300, )
+ggsave(file="final_graphs/SF2.pdf", plot=corr_facet,width=180, height=135, units = "mm")
 
 
 
@@ -774,10 +771,10 @@ p2<-ggplot(parm_treatonly, aes(x=rank,y=scaled.mu))+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))
 
 
-freq_isolation<- ggarrange(p1,p2, labels=c("a","b"), hjust=-2)
+freq_isolation <- ggarrange(p1,p2, labels=c("a","b"), hjust=-2)
 freq_isolation
 ggsave(file="final_graphs/F4.svg", plot=freq_isolation, width=180, height=100, units = "mm")
-ggsave(file="F4.png", plot=freq_isolation, width=8, height=4, units="in", dpi=300, )
+ggsave(file="final_graphs/F4.pdf", plot=freq_isolation, width=180, height=100, units = "mm")
 
 
 
@@ -827,7 +824,7 @@ g2 <- ggplot(parm_all, aes(x=type, y=A.model, color=type, fill=type)) +
 
 g2
 ggsave(file="final_graphs/SF3.svg", plot=g2, width=180, height=135, units = "mm")
-ggsave(file="SF3.png", plot=g2, width=8, height=6, units="in", dpi=300, )
+ggsave(file="final_graphs/SF3.pdf", plot=g2, width=180, height=135, units = "mm")
 
 
 
@@ -860,7 +857,7 @@ g5 <- ggplot(parm_all, aes(x=type, y=mu.model, color=type, fill=type)) +
 g5
 
 ggsave(file="final_graphs/SF4.svg", plot=g5, width=180, height=135, units = "mm")
-ggsave(file="SF4.png", plot=g5, width=8, height=6, units="in", dpi=300, )
+ggsave(file="final_graphs/SF4.pdf", plot=g5, width=180, height=135, units = "mm")
 
 
 
@@ -874,7 +871,7 @@ ggsave(file="SF4.png", plot=g5, width=8, height=6, units="in", dpi=300, )
 ##### figure S5 ####
 
 
-# for some reason some fool (ahem toby..) made yeast lowercase
+# for some reason some fool (ahem tobias..) made yeast lowercase
 # so lets fix that
 levels(parm_all$kingdom) <- list(Yeast  = "yeast", Bacteria = "Bacteria")
 
@@ -896,7 +893,7 @@ sf5_kingdom<- parm_all %>%
         legend.text = element_text(face = "italic"))
 sf5_kingdom
 ggsave(file="final_graphs/SF5.svg", plot=sf5_kingdom, width=180, height=135, units = "mm")
-
+ggsave(file="final_graphs/SF5.pdf", plot=sf5_kingdom, width=180, height=135, units = "mm")
 
 # then lets also do a non scaled graph
 sf5_noscale <- parm_all %>%
@@ -923,6 +920,7 @@ sf5 <- ggarrange(sf5_noscale, sf5_kingdom, labels=c("a","b"), hjust=-2,
           legend = "bottom")
 
 ggsave(file="final_graphs/SF5.svg", plot=sf5, width=200, height=135, units = "mm")
+ggsave(file="final_graphs/SF5.pdf", plot=sf5, width=200, height=135, units = "mm")
 
 # and then also one thats facetted 
 # itd be nice to have a grouped facet like margins() does in facet_grid

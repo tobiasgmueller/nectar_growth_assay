@@ -117,7 +117,6 @@ p1_dil_adjust<- bind_rows(melt1, s)
 p1_dil_adjust<- p1_dil_adjust[ -c(6:8) ]
 p1_dil_adjust$treatment<-as.factor(p1_dil_adjust$treatment)
 p1_dil_adjust <- droplevels(p1_dil_adjust)
-p1_dil_adjust$treatment<- relevel(p1_dil_adjust$treatment, ref="Solo")
 
 
 ### P2
@@ -146,7 +145,6 @@ p2_dil_adjust<- bind_rows(melt2, s2)
 p2_dil_adjust<- p2_dil_adjust[ -c(6:8) ]
 p2_dil_adjust$treatment<-as.factor(p2_dil_adjust$treatment)
 p2_dil_adjust <- droplevels(p2_dil_adjust)
-p2_dil_adjust$treatment<- relevel(p2_dil_adjust$treatment, ref="Solo")
 
 
 ### pair 4
@@ -174,16 +172,15 @@ p4_dil_adjust<- bind_rows(melt4, s4)
 p4_dil_adjust<- p4_dil_adjust[ -c(6:8) ]
 p4_dil_adjust$treatment<-as.factor(p4_dil_adjust$treatment)
 p4_dil_adjust <- droplevels(p4_dil_adjust)
-p4_dil_adjust$treatment<- relevel(p4_dil_adjust$treatment, ref="Solo")
 
 #then lets also make dfs that dont have solo to compare to the control co growths
-p1_dil_adjust2 <- p1_dil_adjust[p1_dil_adjust$treatment != "Solo", ]
+p1_dil_adjust2 <- p1_dil_adjust[p1_dil_adjust$type != "Solo", ]
 p1_dil_adjust2 <- droplevels(p1_dil_adjust2)
 
-p2_dil_adjust2 <- p2_dil_adjust[p2_dil_adjust$treatment != "Solo", ]
+p2_dil_adjust2 <- p2_dil_adjust[p2_dil_adjust$type != "Solo", ]
 p2_dil_adjust2 <- droplevels(p2_dil_adjust2)
 
-p4_dil_adjust2 <- p4_dil_adjust[p4_dil_adjust$treatment != "Solo", ]
+p4_dil_adjust2 <- p4_dil_adjust[p4_dil_adjust$type != "Solo", ]
 p4_dil_adjust2 <- droplevels(p4_dil_adjust2)
 
 #------------------------- END OF DATA PREP
@@ -369,6 +366,7 @@ ga2<- ggarrange(g2,g4,g6,
   
 ga2
   ggsave(file="final_graphs/F5.svg", plot=ga2, width=180, height=270, units = "mm")
+  ggsave(file="final_graphs/F5.pdf", plot=ga2, width=180, height=270, units = "mm")
 #  ggsave(file="cogrowth_cfu_corrected.png", plot=ga2, width=8, height=8, units="in", dpi=300, )
 
 
@@ -385,16 +383,6 @@ kwtest.p1<- lapply(split(p1_dil_adjust, p1_dil_adjust$microbe), function(i){
 kwtest.p1
 
 
-
-
-kwtest.p1.cont<- lapply(split(p1_dil_adjust2, p1_dil_adjust2$microbe), function(i){
-  kruskal.test(cfu.ul ~ treatment, data = i)
-})
-kwtest.p1.cont
-
-
-
-
 kwtest.p2<- lapply(split(p2_dil_adjust, p2_dil_adjust$microbe), function(i){
   kruskal.test(cfu.ul ~ treatment, data = i)
 })
@@ -406,43 +394,9 @@ kwtest.p4<- lapply(split(p4_dil_adjust, p4_dil_adjust$microbe), function(i){
 })
 kwtest.p4
 
-#### dunnetts tests ####
-# well they all come out significant. I think mostly becaues of the solo treatment where things grew
-
-dunnets.cfu1<- lapply(split(p1_dil_adjust, p1_dil_adjust$microbe), function(i){
-  DunnettTest(cfu.ul ~ treatment, data = i)
-})
-
-dunnets.cfu1.control<-lapply(split(p1_dil_adjust2, p1_dil_adjust2$microbe), function(i){
-  DunnettTest(cfu.ul ~ treatment, data = i)
-})
-
-
-dunnets.cfu2<- lapply(split(p2_dil_adjust, p2_dil_adjust$microbe), function(i){
-  DunnettTest(cfu.ul ~ treatment, data = i)
-})
-
-dunnets.cfu2
-
-dunnets.cfu2.control<-lapply(split(p2_dil_adjust2, p2_dil_adjust2$microbe), function(i){
-  DunnettTest(cfu.ul ~ treatment, data = i)
-})
-
-
-dunnets.cfu4<- lapply(split(p4_dil_adjust, p4_dil_adjust$microbe), function(i){
-  DunnettTest(cfu.ul ~ treatment, data = i)
-})
-
-dunnets.cfu4
-
-
-dunnets.cfu4.control<-lapply(split(p4_dil_adjust2, p4_dil_adjust2$microbe), function(i){
-  DunnettTest(cfu.ul ~ treatment, data = i)
-})
-
 
 #### dunn test ####
-# what may also be interesting
+# what may then  be interesting
 # is a pairwise comparing each treatment
 # so dunn test with holm correction
 
