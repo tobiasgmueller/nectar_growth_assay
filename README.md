@@ -1,7 +1,7 @@
 # nectar growth assay
 # Tobias Mueller
 
-This repository contains all the data and R code for my 2021 growth assay experiments. Manuscript hopefully soon to be published as a preprint `https://doi.org/10.1101/2022.03.29.485809 `
+This repository contains all the data and R code for my 2021 growth assay experiments. Manuscript published as a preprint here [https://doi.org/10.1101/2022.03.29.485809](https://doi.org/10.1101/2022.03.29.485809)
 
 
 
