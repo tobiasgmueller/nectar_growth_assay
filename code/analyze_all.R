@@ -561,9 +561,11 @@ treatmentMM <- data.frame(nb.A.pc$emmeans)
 treatmentMM <- rename(.data = treatmentMM, plate=type, predicted=response,ymin=asymp.LCL, ymax=asymp.UCL)
 treatmentMM <- treatmentMM[treatmentMM$plate!="control",]
 
+
+
 treatmentMeans <- ggplot(parm_treatonly, aes(x=plate, y=scaled.A)) +
   #geom_boxplot(aes(), alpha=0.5) +
-  geom_point(size=3,position= position_jitterdodge(.4), aes(color=microbe), alpha=.3) +
+  geom_point(size=3,position= position_jitter(.2), aes(color= str_wrap(microbe, 12)), alpha=.5) +
   geom_hline(yintercept=1)+ 
   geom_errorbar(data=treatmentMM,aes(x=plate, ymin=ymin, ymax=ymax),width=.3, inherit.aes = FALSE)+
   geom_point(data=treatmentMM, aes(y=predicted),color="black", fill="white", shape=21, size=2, stroke=1)+
@@ -576,12 +578,12 @@ treatmentMeans <- ggplot(parm_treatonly, aes(x=plate, y=scaled.A)) +
   theme(axis.ticks.x=element_blank(),
         axis.title.x=element_blank(),
         legend.text = element_text(face = "italic"),
-        axis.text.x = element_text(angle=90))
-
-magic <- guides(colour = guide_legend(override.aes = list(alpha = 1))) 
-treatmentMeans <- treatmentMeans + magic
+        axis.text.x = element_text(angle=90),
+        legend.spacing = unit(0.04, "cm"))+
+  guides(colour = guide_legend(override.aes = list(alpha = 1), keyheight = 1.8)) 
 
 treatmentMeans
+
 
 ggsave(file="final_graphs/F1.svg", plot=treatmentMeans, width=180, height=135, units = "mm")
 ggsave(file="final_graphs/F1.pdf", plot=treatmentMeans, width=180, height=135, units = "mm")
@@ -986,7 +988,15 @@ ggsave(file="final_graphs/SF5_kingdom_all.svg", plot=sf5_all, width=200, height=
 
 
 
+### test for freezer time effect ####
+control <- parm_all%>%
+  filter(treatment == "control")
 
+dunnTest(data=control, lambda.model~plate, method="holm")
+
+ggplot(data=control)+
+  geom_boxplot(aes(x=plate, y=lambda.model))+
+  facet_grid(plate~microbe)
 
 
 
