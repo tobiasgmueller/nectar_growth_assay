@@ -565,7 +565,7 @@ treatmentMM <- treatmentMM[treatmentMM$plate!="control",]
 
 treatmentMeans <- ggplot(parm_treatonly, aes(x=plate, y=scaled.A)) +
   #geom_boxplot(aes(), alpha=0.5) +
-  geom_point(size=3,position= position_jitter(.2), aes(color= str_wrap(microbe, 12)), alpha=.5) +
+  geom_point(size=3,position= position_jitter(.2), aes(color= str_wrap(microbe, 12)), alpha=.7) +
   geom_hline(yintercept=1)+ 
   geom_errorbar(data=treatmentMM,aes(x=plate, ymin=ymin, ymax=ymax),width=.3, inherit.aes = FALSE)+
   geom_point(data=treatmentMM, aes(y=predicted),color="black", fill="white", shape=21, size=2, stroke=1)+
