@@ -992,15 +992,20 @@ ggsave(file="final_graphs/SF5_kingdom_all.svg", plot=sf5_all, width=200, height=
 control <- parm_all%>%
   filter(treatment == "control")
 
+#make dates actual dates
+control$date <- as.Date(control$date,
+                        format = "%B %d")
+
+control$date <- as.numeric(control$date)
+
 dunnTest(data=control, lambda.model~plate, method="holm")
 
 ggplot(data=control)+
-  geom_boxplot(aes(x=plate, y=lambda.model))+
-  facet_grid(plate~microbe)
+  geom_point(aes(x=date, y=lambda.model, color=microbe))+
+  geom_smooth(aes(x=date, y=lambda.model), method = lm)
 
 
-
-
+cor.test(control$date, control$lambda.model, method="pearson")
 
 
 #### GRAVEYARD #### 

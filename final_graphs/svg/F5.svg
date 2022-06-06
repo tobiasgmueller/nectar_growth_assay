@@ -6,11 +6,8 @@
    viewBox="0 0 510.24 765.35"
    version="1.1"
    id="svg920"
-   sodipodi:docname="fig5.svg"
+   sodipodi:docname="F5.svg"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
-   inkscape:export-filename="C:\Users\obiew\Desktop\github\nectar_growth_assay\final_graphs\png\fig5.png"
-   inkscape:export-xdpi="300"
-   inkscape:export-ydpi="300"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,15 +22,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="pt"
      showgrid="false"
-     inkscape:zoom="1.043545"
-     inkscape:cx="264.00396"
-     inkscape:cy="388.10019"
+     inkscape:zoom="0.73789772"
+     inkscape:cx="340.83315"
+     inkscape:cy="509.55572"
      inkscape:window-width="1920"
      inkscape:window-height="1106"
      inkscape:window-x="-11"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g5084" />
+     inkscape:current-layer="svg920" />
   <defs
      id="defs4">
     <style
@@ -751,59 +748,59 @@
        style="stroke-width: 1.45; stroke: #333333; stroke-linecap: butt;"
        id="polyline258" />
     <text
-       transform="translate(18.39,170.66) rotate(-90)"
+       transform="translate(18.39,174.55) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text260">L</text>
     <text
-       transform="translate(18.39,162.33) rotate(-90)"
+       transform="translate(18.39,166.22) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text262">o</text>
     <text
-       transform="translate(18.39,153.99) rotate(-90)"
+       transform="translate(18.39,157.88) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text264">g</text>
     <text
-       transform="translate(21.12,145.65) rotate(-90)"
+       transform="translate(21.12,149.54) rotate(-90)"
        style="font-size: 10.50px; font-family: Arial;"
        textLength="11.68px"
        lengthAdjust="spacingAndGlyphs"
        id="text266">10</text>
     <text
-       transform="translate(18.39,133.97) rotate(-90)"
+       transform="translate(18.39,137.86) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="4.11px"
        lengthAdjust="spacingAndGlyphs"
        id="text268" />
     <text
-       transform="translate(18.39,129.86) rotate(-90)"
+       transform="translate(18.39,133.75) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="44.15px"
        lengthAdjust="spacingAndGlyphs"
        id="text270">(CFU /</text>
     <text
-       transform="translate(18.39,85.71) rotate(-90)"
+       transform="translate(18.39,89.60) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="4.11px"
        lengthAdjust="spacingAndGlyphs"
        id="text272" />
     <text
-       transform="translate(18.39,81.60) rotate(-90)"
+       transform="translate(18.39,85.49) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.65px"
        lengthAdjust="spacingAndGlyphs"
        id="text274">μ</text>
     <text
-       transform="translate(18.39,72.94) rotate(-90)"
+       transform="translate(18.39,76.84) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
-       textLength="30.43px"
+       textLength="38.21px"
        lengthAdjust="spacingAndGlyphs"
-       id="text276"> + 1)</text>
+       id="text276">L + 1)</text>
     <rect
        x="105.33"
        y="215.42"
@@ -1605,59 +1602,59 @@
        style="stroke-width: 1.45; stroke: #333333; stroke-linecap: butt;"
        id="polyline563" />
     <text
-       transform="translate(18.39,425.78) rotate(-90)"
+       transform="translate(18.39,429.67) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text565">L</text>
     <text
-       transform="translate(18.39,417.44) rotate(-90)"
+       transform="translate(18.39,421.34) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text567">o</text>
     <text
-       transform="translate(18.39,409.11) rotate(-90)"
+       transform="translate(18.39,413.00) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text569">g</text>
     <text
-       transform="translate(21.12,400.77) rotate(-90)"
+       transform="translate(21.12,404.66) rotate(-90)"
        style="font-size: 10.50px; font-family: Arial;"
        textLength="11.68px"
        lengthAdjust="spacingAndGlyphs"
        id="text571">10</text>
     <text
-       transform="translate(18.39,389.09) rotate(-90)"
+       transform="translate(18.39,392.98) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="4.11px"
        lengthAdjust="spacingAndGlyphs"
        id="text573" />
     <text
-       transform="translate(18.39,384.98) rotate(-90)"
+       transform="translate(18.39,388.87) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="44.15px"
        lengthAdjust="spacingAndGlyphs"
        id="text575">(CFU /</text>
     <text
-       transform="translate(18.39,340.83) rotate(-90)"
+       transform="translate(18.39,344.72) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="4.11px"
        lengthAdjust="spacingAndGlyphs"
        id="text577" />
     <text
-       transform="translate(18.39,336.72) rotate(-90)"
+       transform="translate(18.39,340.61) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.65px"
        lengthAdjust="spacingAndGlyphs"
        id="text579">μ</text>
     <text
-       transform="translate(18.39,328.06) rotate(-90)"
+       transform="translate(18.39,331.95) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
-       textLength="30.43px"
+       textLength="38.21px"
        lengthAdjust="spacingAndGlyphs"
-       id="text581"> + 1)</text>
+       id="text581">L + 1)</text>
     <rect
        x="111.93"
        y="470.54"
@@ -2463,59 +2460,59 @@
        style="stroke-width: 1.45; stroke: #333333; stroke-linecap: butt;"
        id="polyline868" />
     <text
-       transform="translate(18.39,680.90) rotate(-90)"
+       transform="translate(18.39,684.79) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text870">L</text>
     <text
-       transform="translate(18.39,672.56) rotate(-90)"
+       transform="translate(18.39,676.45) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text872">o</text>
     <text
-       transform="translate(18.39,664.22) rotate(-90)"
+       transform="translate(18.39,668.12) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.34px"
        lengthAdjust="spacingAndGlyphs"
        id="text874">g</text>
     <text
-       transform="translate(21.12,655.89) rotate(-90)"
+       transform="translate(21.12,659.78) rotate(-90)"
        style="font-size: 10.50px; font-family: Arial;"
        textLength="11.68px"
        lengthAdjust="spacingAndGlyphs"
        id="text876">10</text>
     <text
-       transform="translate(18.39,644.21) rotate(-90)"
+       transform="translate(18.39,648.10) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="4.11px"
        lengthAdjust="spacingAndGlyphs"
        id="text878" />
     <text
-       transform="translate(18.39,640.10) rotate(-90)"
+       transform="translate(18.39,643.99) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="44.15px"
        lengthAdjust="spacingAndGlyphs"
        id="text880">(CFU /</text>
     <text
-       transform="translate(18.39,595.95) rotate(-90)"
+       transform="translate(18.39,599.84) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="4.11px"
        lengthAdjust="spacingAndGlyphs"
        id="text882" />
     <text
-       transform="translate(18.39,591.84) rotate(-90)"
+       transform="translate(18.39,595.73) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
        textLength="8.65px"
        lengthAdjust="spacingAndGlyphs"
        id="text884">μ</text>
     <text
-       transform="translate(18.39,583.18) rotate(-90)"
+       transform="translate(18.39,587.07) rotate(-90)"
        style="font-size: 15.00px; font-family: Arial;"
-       textLength="30.43px"
+       textLength="38.21px"
        lengthAdjust="spacingAndGlyphs"
-       id="text886"> + 1)</text>
+       id="text886">L + 1)</text>
     <rect
        x="108.47"
        y="725.66"
@@ -2606,7 +2603,7 @@
   </g>
   <g
      id="g5084"
-     transform="translate(2.5348369,-1.0056964)">
+     transform="translate(2.0281887,1.6052122)">
     <text
        xml:space="preserve"
        style="font-size:12px;line-height:1.25;font-family:sans-serif;stroke-width:0.75"
