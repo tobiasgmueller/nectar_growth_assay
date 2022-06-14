@@ -293,8 +293,9 @@ parm_all$mu.model <- parm_all$adjusted.mu
 
 #### Now to scale data so microbes can be compared to each other
 # ill just adjust everything
-# to be a percent of the control mean
-# scaled from 0 (no growth), to 1 (equal to control / no change), to above 1 (increased growth)
+# to be proportional to the control mean
+# log ((treatment value / mean control value) + 1 )
+
 
 parm_all <- parm_all %>%
   group_by(microbe) %>%
