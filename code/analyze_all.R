@@ -577,8 +577,6 @@ treatmentMeans <- ggplot(parm_treatonly, aes(x=plate, y=scaled.A)) +
   ylab("Scaled Impact on Max OD")+
   xlab("Treatment")+
   labs(color="Microbe", fill="Microbe")+
-  scale_y_continuous( 
-                     labels = trans_format("log"))+
   theme_bw(base_size = 12)+
   scale_fill_manual(values = safe_pal)+
   scale_color_manual(values = safe_pal)+
@@ -594,6 +592,7 @@ treatmentMeans
 
 ggsave(file="final_graphs/F1.svg", plot=treatmentMeans, width=180, height=135, units = "mm")
 ggsave(file="final_graphs/F1.pdf", plot=treatmentMeans, width=180, height=135, units = "mm")
+ggsave(file="final_graphs/F1_log.tiff", plot=treatmentMeans, width=180, height=135, units = "mm", dpi=300)
 
 dev.off()
 
@@ -633,6 +632,7 @@ g1_free<- ggplot(parm_treatonly, aes(x=plate, y=scaled.A, color=plate, fill=plat
 g1_free
 ggsave(file="final_graphs/F2.svg", plot=g1_free, width=180, height=135, units = "mm")
 ggsave(file="final_graphs/F2.pdf", plot=g1_free, width=180, height=135, units = "mm")
+ggsave(file="final_graphs/F2_log.tiff", plot=g1_free, width=180, height=135, units = "mm", dpi=300)
 
 ##### figure 3 ####
 g4<- ggplot(parm_treatonly, aes(x=plate, y=scaled.mu, color=plate, fill=plate)) +
@@ -658,6 +658,7 @@ g4
 
 ggsave(file="final_graphs/F3.svg", plot=g4,width=180, height=135, units = "mm")
 ggsave(file="final_graphs/F3.pdf", plot=g4,width=180, height=135, units = "mm")
+ggsave(file="final_graphs/F3_log.tiff", plot=g4, width=180, height=135, units = "mm", dpi=300)
 
 
 
@@ -729,6 +730,8 @@ corr_facet
 
 ggsave(file="final_graphs/SF2.svg", plot=corr_facet,width=180, height=135, units = "mm")
 ggsave(file="final_graphs/SF2.pdf", plot=corr_facet,width=180, height=135, units = "mm")
+ggsave(file="final_graphs/SF3_log.tiff", plot=corr_facet, width=180, height=135, units = "mm", dpi=300)
+
 
 
 
@@ -813,6 +816,7 @@ freq_isolation <- ggarrange(p1,p2, labels=c("a","b"), hjust=-.7)
 freq_isolation
 ggsave(file="final_graphs/F4.svg", plot=freq_isolation, width=180, height=100, units = "mm")
 ggsave(file="final_graphs/F4.pdf", plot=freq_isolation, width=180, height=100, units = "mm")
+ggsave(file="final_graphs/S4_log.tiff", plot=freq_isolation, width=180, height=100, units = "mm", dpi=300)
 
 
 
@@ -863,6 +867,7 @@ g2 <- ggplot(parm_all, aes(x=type, y=A.model, color=type, fill=type)) +
 g2
 ggsave(file="final_graphs/SF3.svg", plot=g2, width=180, height=135, units = "mm")
 ggsave(file="final_graphs/SF3.pdf", plot=g2, width=180, height=135, units = "mm")
+ggsave(file="final_graphs/SF3_log.tiff", plot=g2, width=180, height=135, units = "mm", dpi=300)
 
 
 
@@ -896,6 +901,7 @@ g5
 
 ggsave(file="final_graphs/SF4.svg", plot=g5, width=180, height=135, units = "mm")
 ggsave(file="final_graphs/SF4.pdf", plot=g5, width=180, height=135, units = "mm")
+ggsave(file="final_graphs/SF4_log.tiff", plot=g5, width=180, height=135, units = "mm", dpi=300)
 
 
 
@@ -960,6 +966,7 @@ sf5 <- ggarrange(sf5_noscale, sf5_kingdom, labels=c("a","b"),
 sf5
 ggsave(file="final_graphs/SF5.svg", plot=sf5, width=200, height=135, units = "mm")
 ggsave(file="final_graphs/SF5.pdf", plot=sf5, width=200, height=135, units = "mm")
+ggsave(file="final_graphs/SF5_log.tiff", plot=sf5, width=200, height=135, units = "mm", dpi=300)
 
 # and then also one thats facetted 
 # itd be nice to have a grouped facet like margins() does in facet_grid
