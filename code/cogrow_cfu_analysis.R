@@ -353,7 +353,7 @@ g8<- ggplot(solo, aes(x=microbe, y=cfu.ul)) +
 # above has legends on the sides which leads to uneven graph sizing but better layout
 
 
-### FIGURE 4
+### FIGURE 5
 ga2<- ggarrange(g2,g4,g6, 
                 ncol=1, 
                 nrow=3, 
@@ -367,7 +367,9 @@ ga2<- ggarrange(g2,g4,g6,
 ga2
   ggsave(file="final_graphs/F5.svg", plot=ga2, width=180, height=270, units = "mm")
   ggsave(file="final_graphs/F5.pdf", plot=ga2, width=180, height=270, units = "mm")
-#  ggsave(file="cogrowth_cfu_corrected.png", plot=ga2, width=8, height=8, units="in", dpi=300, )
+  ggsave(file="final_graphs/F5_tiff.tiff", plot=ga2, width=180, height=270, units = "mm", dpi = 300)
+  
+  #  ggsave(file="cogrowth_cfu_corrected.png", plot=ga2, width=8, height=8, units="in", dpi=300, )
 
 
 

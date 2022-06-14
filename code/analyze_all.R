@@ -816,7 +816,7 @@ freq_isolation <- ggarrange(p1,p2, labels=c("a","b"), hjust=-.7)
 freq_isolation
 ggsave(file="final_graphs/F4.svg", plot=freq_isolation, width=180, height=100, units = "mm")
 ggsave(file="final_graphs/F4.pdf", plot=freq_isolation, width=180, height=100, units = "mm")
-ggsave(file="final_graphs/S4_log.tiff", plot=freq_isolation, width=180, height=100, units = "mm", dpi=300)
+ggsave(file="final_graphs/F4_log.tiff", plot=freq_isolation, width=180, height=100, units = "mm", dpi=300)
 
 
 
