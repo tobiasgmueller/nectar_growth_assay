@@ -298,7 +298,7 @@ parm_all$mu.model <- parm_all$adjusted.mu
 
 parm_all <- parm_all %>%
   group_by(microbe) %>%
-  mutate(scaled.A = (A.model/mean(A.model[which(treatment=="control")])))%>%
+  mutate(scaled.A = log((A.model/mean(A.model[which(treatment=="control")]))+1))%>%
   ungroup()
 
 parm_all <- parm_all[moveme(names(parm_all), "scaled.A before A.model")]
@@ -307,7 +307,7 @@ parm_all <- parm_all[moveme(names(parm_all), "scaled.A before A.model")]
 
 parm_all <- parm_all %>%
   group_by(microbe) %>%
-  mutate(scaled.mu = (mu.model/mean(mu.model[which(treatment=="control")])))%>%
+  mutate(scaled.mu = log((mu.model/mean(mu.model[which(treatment=="control")]))+1))%>%
   ungroup()
 
 parm_all <- parm_all[moveme(names(parm_all), "scaled.mu before mu.model")]
@@ -428,6 +428,8 @@ dunnets.mu <- lapply(split(parm_all, parm_all$microbe), function(i){
 nb.scaled.a<-glm.nb(data=parm_all, 
               scaled.A ~ type)
 
+nb.scaled.a
+
 simoutput<-simulateResiduals(fittedModel = test)
 plot(simoutput)
 
@@ -442,6 +444,7 @@ plot(simoutput)
 nb.scaled.mu<-glm.nb(data=parm_all, 
              scaled.mu ~ type)
 
+nb.scaled.mu
 test2<-glmer.nb(data=parm_all, 
                 scaled.mu ~ type + (1|microbe))
 
@@ -475,8 +478,10 @@ plot(simoutput)
 # nb.k.mu <- glm.nb(data=parm_treatonly, scaled.mu ~ kingdom )
 # summary(nb.k.mu)
 
+test<-  kruskal.test(data=parm_treatonly, scaled.A ~ kingdom)
+test
 
-
+DunnTest(data=parm_treatonly, scaled.A ~ kingdom, method="holm")
 
 
 ### levels comparison ####
@@ -512,7 +517,6 @@ kw.rank.mu # comes out significant
 DunnTest(scaled.mu~rank, data=parm_treatonly, method="holm")
 
 
-
 # correlation test ####
 cor.test(parm_treatonly$scaled.A,parm_treatonly$scaled.mu, method = "pearson",exact=FALSE)
 
@@ -524,8 +528,8 @@ corr.microbe<- lapply(split(parm_treatonly, parm_treatonly$microbe), function(i)
 
 
 
-### plots for final figures ####
 
+### plots for final figures ####
 
 
 
@@ -566,12 +570,14 @@ treatmentMM <- treatmentMM[treatmentMM$plate!="control",]
 treatmentMeans <- ggplot(parm_treatonly, aes(x=plate, y=scaled.A)) +
   #geom_boxplot(aes(), alpha=0.5) +
   geom_point(size=3,position= position_jitter(.2), aes(color= str_wrap(microbe, 12)), alpha=.7) +
-  geom_hline(yintercept=1)+ 
+  geom_hline(yintercept=log(2))+ 
   geom_errorbar(data=treatmentMM,aes(x=plate, ymin=ymin, ymax=ymax),width=.3, inherit.aes = FALSE)+
   geom_point(data=treatmentMM, aes(y=predicted),color="black", fill="white", shape=21, size=2, stroke=1)+
   ylab("Scaled Impact on Max OD")+
   xlab("Treatment")+
   labs(color="Microbe", fill="Microbe")+
+  scale_y_continuous( 
+                     labels = trans_format("log"))+
   theme_bw(base_size = 12)+
   scale_fill_manual(values = safe_pal)+
   scale_color_manual(values = safe_pal)+
@@ -593,13 +599,15 @@ dev.off()
 
 
 
+
+
 ##### figure 2####
 g1_free<- ggplot(parm_treatonly, aes(x=plate, y=scaled.A, color=plate, fill=plate)) +
   geom_boxplot(aes(), alpha=0.5) +
   geom_point(aes(), size=1,
              position= position_jitterdodge(1),
              alpha=.5) +
-  geom_hline(yintercept=1)+ 
+  geom_hline(yintercept=log(2))+ 
   ylab("Scaled Impact on Max OD")+
   xlab("Treatment")+
   labs(fill ="Treatment", color="Treatment")+
@@ -629,7 +637,7 @@ ggsave(file="final_graphs/F2.pdf", plot=g1_free, width=180, height=135, units = 
 g4<- ggplot(parm_treatonly, aes(x=plate, y=scaled.mu, color=plate, fill=plate)) +
   geom_boxplot(aes(), alpha=0.5) +
   geom_point(aes(), size=.5) +
-  geom_hline(yintercept=1)+ 
+  geom_hline(yintercept=log(2))+ 
   ylab("Scaled Impact on Growth Rate")+
   xlab("Treatment")+
   labs(color = "Treatment", fill="Treatment")+
@@ -656,7 +664,19 @@ ggsave(file="final_graphs/F3.pdf", plot=g4,width=180, height=135, units = "mm")
 # facetted by microbe
 p<- ggplot(parm_treatonly, 
        aes(x=scaled.mu, y=scaled.A))+
-  geom_point(aes(color=plate), alpha=.5)+
+  geom_point(aes(color=plate), alpha=.9)+
+  annotate("rect",xmin = -Inf, 
+                xmax = log(2), 
+                ymin = -Inf, 
+                ymax = Inf, 
+            fill = "blue", 
+            alpha = 0.1)+
+  annotate("rect", xmin = -Inf, 
+                xmax = Inf, 
+                ymin = -Inf, 
+                ymax = log(2), 
+            fill = "red", 
+            alpha = 0.1)+
   facet_wrap(~microbe, 
              labeller = label_wrap_gen(width=10))+
   geom_smooth(method="lm", 
@@ -673,21 +693,36 @@ p<- ggplot(parm_treatonly,
 
 # add text to each facet
 dat_text <- data.frame(
-  label = c("r = -0.50", "r = 0.93", "r = 0.17","r = 0.98","r = 0.13","r = 0.78","r = -0.44", "r = 0.36","r = 0.92","r = 0.98","r = 0.47","r = 0.63"
-  ),
-  microbe   = c("Metschnikowia reukaufii"  ,  "Acinetobacter nectaris" ,   
- "Rosenbergiella nectarea"  ,  "Pantoea agglomerans"   ,    
- "Aureobasidium pullulans"  ,  "Bacillus subtilis"     ,    
-"Starmerella bombi"       ,   "Rhodotorula fujisanensis" , 
-"Pseudomonas mandelii"    ,   "Pectobacterium carotovorum","Saccharomyces cerevisiae" ,  "Zygosaccharomyces bailii")  
-)
+  label = c("r = -0.53",
+            "r = 0.94",
+            "r = 0.38",
+            "r = 0.97",
+            "r = 0.37",
+            "r = 0.76",
+            "r = -0.44",
+            "r = 0.52",
+            "r = 0.86",
+            "r = 0.97",
+            "r = 0.70",
+            "r = 0.66"), microbe   = c("Metschnikowia reukaufii",
+                "Acinetobacter nectaris",  
+                "Rosenbergiella nectarea",
+                "Pantoea agglomerans",    
+                "Aureobasidium pullulans",  
+                "Bacillus subtilis",    
+                "Starmerella bombi",  
+                "Rhodotorula fujisanensis", 
+                "Pseudomonas mandelii",   
+                "Pectobacterium carotovorum",
+                "Saccharomyces cerevisiae",
+                "Zygosaccharomyces bailii") )
 
 
 corr_facet<- p + geom_text(
   data    = dat_text,
   mapping = aes(x = -Inf, y = -Inf, label = label),
-  hjust   = -0.1,
-  vjust   = -9
+  hjust   = -.2,
+  vjust   = -8
 )
 corr_facet
 
@@ -758,7 +793,7 @@ ggplot(parm_treatonly, aes(x=microbe, y=z.a, color=microbe, fill=microbe)) +
 # must run correlation analysis code above to create rank factor
 p1<-ggplot(parm_treatonly, aes(x=rank,y=scaled.A))+
   geom_boxplot()+
-  geom_hline(yintercept=1)+
+  geom_hline(yintercept=log(2))+
   theme_bw(base_size = 12)+ 
   ylab("Scaled Impact on Max OD")+
   xlab("Frequency of Isolation From Nectar")+
@@ -766,14 +801,14 @@ p1<-ggplot(parm_treatonly, aes(x=rank,y=scaled.A))+
 
 p2<-ggplot(parm_treatonly, aes(x=rank,y=scaled.mu))+
   geom_boxplot()+
-  geom_hline(yintercept=1)+
+  geom_hline(yintercept=log(2))+
   theme_bw(base_size = 12)+ 
   ylab("Scaled Impact on Growth Rate")+
   xlab("Frequency of Isolation From Nectar")+
   scale_y_continuous(expand=expansion(mult = c(.1,.2)))
 
 
-freq_isolation <- ggarrange(p1,p2, labels=c("a","b"), hjust=-2)
+freq_isolation <- ggarrange(p1,p2, labels=c("a","b"), hjust=-.7)
 freq_isolation
 ggsave(file="final_graphs/F4.svg", plot=freq_isolation, width=180, height=100, units = "mm")
 ggsave(file="final_graphs/F4.pdf", plot=freq_isolation, width=180, height=100, units = "mm")
@@ -883,7 +918,7 @@ sf5_kingdom<- parm_all %>%
   ggplot() +
   geom_boxplot(aes(x=kingdom, y=scaled.A, fill = kingdom),outlier.shape = NA, size=.7) +
   geom_jitter(aes(x=kingdom, y=scaled.A, color=str_wrap(microbe,15)), size = 1.8, alpha = .5) +
-  geom_hline(yintercept=1)+ 
+  geom_hline(yintercept=log(2))+ 
   ylab("Scaled Impact on Max OD")+
   xlab("Kingdom")+
   labs(color = "Microbes", fill="Kingdom")+
@@ -894,8 +929,8 @@ sf5_kingdom<- parm_all %>%
   theme(axis.title.x=element_blank(),
         legend.text = element_text(face = "italic"))
 sf5_kingdom
-ggsave(file="final_graphs/SF5.svg", plot=sf5_kingdom, width=180, height=135, units = "mm")
-ggsave(file="final_graphs/SF5.pdf", plot=sf5_kingdom, width=180, height=135, units = "mm")
+#ggsave(file="final_graphs/SF5.svg", plot=sf5_kingdom, width=180, height=135, units = "mm")
+#ggsave(file="final_graphs/SF5.pdf", plot=sf5_kingdom, width=180, height=135, units = "mm")
 
 # then lets also do a non scaled graph
 sf5_noscale <- parm_all %>%
@@ -917,10 +952,11 @@ sf5_noscale
 
 
 
-sf5 <- ggarrange(sf5_noscale, sf5_kingdom, labels=c("a","b"), hjust=-2, 
+sf5 <- ggarrange(sf5_noscale, sf5_kingdom, labels=c("a","b"), 
+                 hjust=-1.2, 
           common.legend = TRUE,
           legend = "bottom")
-
+sf5
 ggsave(file="final_graphs/SF5.svg", plot=sf5, width=200, height=135, units = "mm")
 ggsave(file="final_graphs/SF5.pdf", plot=sf5, width=200, height=135, units = "mm")
 
