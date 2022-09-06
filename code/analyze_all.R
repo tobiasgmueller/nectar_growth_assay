@@ -1027,7 +1027,62 @@ ggsave(file="final_graphs/SF5_kingdom_all.svg", plot=sf5_all, width=200, height=
 
 
 
+### trying phylogenetic ####
 
+library(phytools)
+library(plotrix)
+
+#okay so im pulling this tree from timetree.org
+# it cant for some reason make a tree with aureobasidium pullulans
+# and replaced that with a very related species
+# for our purposes I think it should be fine
+
+tree<- read.newick(file="input/species_list.nwk")
+
+plot(tree)
+edgelabels(tree$edge.length, font=2)
+
+
+# get mean alpha and mu and se for each
+tree_trait <- parm_all %>%
+  group_by(microbe)%>%
+  summarise(mean_A = mean(A.model), se_A = std.error(A.model),
+            mean_mu = mean(mu.model), se_mu = std.error(mu.model)) %>%
+    ungroup()%>%
+  mutate(microbe =  factor(microbe, levels = c("Bacillus subtilis",
+                                               "Pseudomonas mandelii",
+                                               "Acinetobacter nectaris",
+                                               "Rosenbergiella nectarea",
+                                               "Pantoea agglomerans",
+                                               "Pectobacterium carotovorum",
+                                               "Rhodotorula fujisanensis",
+                                               "Aureobasidium pullulans",
+                                               "Starmerella bombi",
+                                               "Saccharomyces cerevisiae",
+                                               "Zygosaccharomyces bailii",
+                                               "Metschnikowia reukaufii"   ))) %>%
+  arrange(microbe)
+
+
+
+
+
+test<-tree_trait$mean_A
+
+test<-tree_trait%>%
+  dplyr::select(c(microbe,mean_A))
+
+test2<-tree_trait%>%
+  dplyr::select(c(microbe,se_a))
+
+
+phylosigDS <- phylosig(tree, test, se = test2, method="lambda", test=TRUE)
+phylosigDS
+
+
+
+phylosig(tree, x, method="K", test=FALSE, nsim=1000, se=NULL, start=NULL,
+   control=list())
 
 
 
