@@ -1113,13 +1113,24 @@ all_x<-tree_trait$mean_mu
 bact_x<-trait_bact$mean_mu
 yeast_x<-trait_yeast$mean_mu
 
-# test<-tree_trait%>%
-#   dplyr::select(c(microbe,mean_A))%>%
-#   remove_rownames %>%
-#   column_to_rownames(var="microbe")
 
 
-phylosig(tree, all_x, se = NULL, method="lambda", test=TRUE)
+# this section below will create a named number vector
+test<-tree_trait%>%
+  remove_rownames %>%
+  column_to_rownames(var="microbe")
+
+alpha<-as.matrix(test)[,1]
+mode(alpha)<-'numeric' #should be a named numeric matrix
+
+alpha<-alpha[tree$tip.label]
+
+
+
+
+
+
+phylosig(tree, alpha, se = NULL, method="lambda", test=TRUE)
 phylosig(tree, all_x, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
    control=list())
 
@@ -1132,24 +1143,18 @@ phylosig(tree_yeast, yeast_x, method="K", test=TRUE, nsim=1000, se=NULL, start=N
    control=list())
 
 
-# tree$tip.label<-gsub(" ", "_", tree$tip.label)
-# tree_trait$microbe<-gsub(" ", "_", tree_trait$microbe)
 
 
-alpha<-as.matrix(test)
-mode(alpha)<-'numeric' #should be a named numeric matrix
 
-alpha<-alpha[tree$tip.label]
 
 # identical(tree$tip.label, rownames(test))
 
-obj<-contMap(tree,body.size,plot=FALSE)
-plot(obj,type="phylogram",leg.txt="Body size(g)",lwd=6,
+obj<-contMap(tree,alpha,plot=FALSE)
+plot(obj,type="phylogram",leg.txt="scaled max growth",lwd=6,
 mar=c(4,2,4,2))
-title(main="Microtus phylogenetic tree")
+title(main="phylogenetic tree")
 axis(1)
 title(xlab="Time from the root")
-
 
 
 
