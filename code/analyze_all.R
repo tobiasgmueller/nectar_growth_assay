@@ -1149,6 +1149,8 @@ phylosig(tree_yeast, yeast_x, method="K", test=TRUE, nsim=1000, se=NULL, start=N
 
 # identical(tree$tip.label, rownames(test))
 
+jpeg("output/alpha_phylo_tree.jpeg", width = 800)
+
 obj<-contMap(tree,alpha,plot=FALSE)
 plot(obj,type="phylogram",leg.txt="scaled max growth",lwd=6,
 mar=c(4,2,4,2))
@@ -1156,7 +1158,7 @@ title(main="phylogenetic tree")
 axis(1)
 title(xlab="Time from the root")
 
-
+dev.off()
 
 
 
