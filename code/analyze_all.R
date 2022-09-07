@@ -1038,16 +1038,20 @@ library(plotrix)
 # for our purposes I think it should be fine
 
 tree<- read.newick(file="input/species_list.nwk")
+tree_yeast<- read.newick(file="input/tree_yeast.nwk")
+tree_bact<- read.newick(file="input/tree_bact.nwk")
 
 plot(tree)
+# plot(tree_yeast)
+# plot(tree_bact)
 edgelabels(tree$edge.length, font=2)
 
 
 # get mean alpha and mu and se for each
 tree_trait <- parm_all %>%
   group_by(microbe)%>%
-  summarise(mean_A = mean(A.model), se_A = std.error(A.model),
-            mean_mu = mean(mu.model), se_mu = std.error(mu.model)) %>%
+  summarise(mean_A = mean(A.model),
+            mean_mu = mean(mu.model)) %>%
     ungroup()%>%
   mutate(microbe =  factor(microbe, levels = c("Bacillus subtilis",
                                                "Pseudomonas mandelii",
@@ -1063,26 +1067,93 @@ tree_trait <- parm_all %>%
                                                "Metschnikowia reukaufii"   ))) %>%
   arrange(microbe)
 
+trait_bact <- parm_all %>%
+  filter(microbe %in% c("Bacillus subtilis", "Pseudomonas mandelii",
+                                               "Acinetobacter nectaris",
+                                               "Rosenbergiella nectarea",
+                                               "Pantoea agglomerans",
+                                               "Pectobacterium carotovorum"))%>%
+  group_by(microbe)%>%
+  summarise(mean_A = mean(A.model),
+            mean_mu = mean(mu.model)) %>%
+    ungroup()%>%
+  mutate(microbe =  factor(microbe, levels = c("Bacillus subtilis",
+                                               "Pseudomonas mandelii",
+                                               "Acinetobacter nectaris",
+                                               "Rosenbergiella nectarea",
+                                               "Pantoea agglomerans",
+                                               "Pectobacterium carotovorum"))) %>%
+  arrange(microbe)
+
+trait_yeast <- parm_all %>%
+  filter(microbe %in% c("Rhodotorula fujisanensis",
+                                               "Aureobasidium pullulans",
+                                               "Starmerella bombi",
+                                               "Saccharomyces cerevisiae",
+                                               "Zygosaccharomyces bailii",
+                                               "Metschnikowia reukaufii"))%>%
+  group_by(microbe)%>%
+  summarise(mean_A = mean(A.model),
+            mean_mu = mean(mu.model)) %>%
+    ungroup()%>%
+  mutate(microbe =  factor(microbe, levels = c("Rhodotorula fujisanensis",
+                                               "Aureobasidium pullulans",
+                                               "Starmerella bombi",
+                                               "Saccharomyces cerevisiae",
+                                               "Zygosaccharomyces bailii",
+                                               "Metschnikowia reukaufii"))) %>%
+  arrange(microbe)
 
 
+all_x<-tree_trait$mean_A
+bact_x<-trait_bact$mean_A
+yeast_x<-trait_yeast$mean_A
+
+all_x<-tree_trait$mean_mu
+bact_x<-trait_bact$mean_mu
+yeast_x<-trait_yeast$mean_mu
+
+# test<-tree_trait%>%
+#   dplyr::select(c(microbe,mean_A))%>%
+#   remove_rownames %>%
+#   column_to_rownames(var="microbe")
 
 
-test<-tree_trait$mean_A
-
-test<-tree_trait%>%
-  dplyr::select(c(microbe,mean_A))
-
-test2<-tree_trait%>%
-  dplyr::select(c(microbe,se_a))
-
-
-phylosigDS <- phylosig(tree, test, se = test2, method="lambda", test=TRUE)
-phylosigDS
-
-
-
-phylosig(tree, x, method="K", test=FALSE, nsim=1000, se=NULL, start=NULL,
+phylosig(tree, all_x, se = NULL, method="lambda", test=TRUE)
+phylosig(tree, all_x, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
    control=list())
+
+phylosig(tree_bact, bact_x, se = NULL, method="lambda", test=TRUE)
+phylosig(tree_bact, bact_x, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
+   control=list())
+
+phylosig(tree_yeast, yeast_x, se = NULL, method="lambda", test=TRUE)
+phylosig(tree_yeast, yeast_x, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
+   control=list())
+
+
+# tree$tip.label<-gsub(" ", "_", tree$tip.label)
+# tree_trait$microbe<-gsub(" ", "_", tree_trait$microbe)
+
+
+alpha<-as.matrix(test)
+mode(alpha)<-'numeric' #should be a named numeric matrix
+
+alpha<-alpha[tree$tip.label]
+
+# identical(tree$tip.label, rownames(test))
+
+obj<-contMap(tree,body.size,plot=FALSE)
+plot(obj,type="phylogram",leg.txt="Body size(g)",lwd=6,
+mar=c(4,2,4,2))
+title(main="Microtus phylogenetic tree")
+axis(1)
+title(xlab="Time from the root")
+
+
+
+
+
 
 
 
@@ -1105,6 +1176,22 @@ ggplot(data=control)+
 
 
 cor.test(control$date, control$lambda.model, method="pearson")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #### GRAVEYARD #### 
