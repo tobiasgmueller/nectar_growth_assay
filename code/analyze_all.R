@@ -537,7 +537,7 @@ corr.microbe<- lapply(split(parm_treatonly, parm_treatonly$microbe), function(i)
 
 # z score A faceted by treatment, color by microbe
 
-g1 <- ggplot(parm_treatonly, aes(x=microbe, y=z.a, color=microbe, fill=microbe)) +
+g1 <- ggplot(parm_treatonly, aes(x=microbe, y=scaled.A, color=microbe, fill=microbe)) +
   geom_boxplot(aes(), alpha=0.5) +
   geom_point(aes(), size=.5) +
   geom_hline(yintercept=0)+ 
@@ -1047,11 +1047,14 @@ plot(tree)
 edgelabels(tree$edge.length, font=2)
 
 
+
+## okay so I just realized this is not quite idea;. I think I want to run this seperately on each treatment. 
+
 # get mean alpha and mu and se for each
 tree_trait <- parm_all %>%
   group_by(microbe)%>%
-  summarise(mean_A = mean(A.model),
-            mean_mu = mean(mu.model)) %>%
+  summarise(mean_A = mean(scaled.A),
+            mean_mu = mean(scaled.mu)) %>%
     ungroup()%>%
   mutate(microbe =  factor(microbe, levels = c("Bacillus subtilis",
                                                "Pseudomonas mandelii",
@@ -1074,8 +1077,8 @@ trait_bact <- parm_all %>%
                                                "Pantoea agglomerans",
                                                "Pectobacterium carotovorum"))%>%
   group_by(microbe)%>%
-  summarise(mean_A = mean(A.model),
-            mean_mu = mean(mu.model)) %>%
+  summarise(mean_A = mean(scaled.A),
+            mean_mu = mean(scaled.mu)) %>%
     ungroup()%>%
   mutate(microbe =  factor(microbe, levels = c("Bacillus subtilis",
                                                "Pseudomonas mandelii",
@@ -1093,8 +1096,8 @@ trait_yeast <- parm_all %>%
                                                "Zygosaccharomyces bailii",
                                                "Metschnikowia reukaufii"))%>%
   group_by(microbe)%>%
-  summarise(mean_A = mean(A.model),
-            mean_mu = mean(mu.model)) %>%
+  summarise(mean_A = mean(scaled.A),
+            mean_mu = mean(scaled.mu)) %>%
     ungroup()%>%
   mutate(microbe =  factor(microbe, levels = c("Rhodotorula fujisanensis",
                                                "Aureobasidium pullulans",
