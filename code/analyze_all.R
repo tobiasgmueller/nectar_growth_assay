@@ -1027,7 +1027,7 @@ ggsave(file="final_graphs/SF5_kingdom_all.svg", plot=sf5_all, width=200, height=
 
 
 
-### trying phylogenetic ####
+### phylogenetic analysis ####
 
 library(phytools)
 library(plotrix)
@@ -1048,10 +1048,10 @@ edgelabels(tree$edge.length, font=2)
 
 
 
-## okay so I just realized this is not quite idea;. I think I want to run this seperately on each treatment. 
+## okay so I just realized this is not quite idea;. I think I want to run this seperately on each treatment?
 
 # get mean alpha and mu and se for each
-tree_trait <- parm_all %>%
+tree_trait <- parm_treatonly %>%
   group_by(microbe)%>%
   summarise(mean_A = mean(scaled.A),
             mean_mu = mean(scaled.mu)) %>%
@@ -1070,7 +1070,7 @@ tree_trait <- parm_all %>%
                                                "Metschnikowia reukaufii"   ))) %>%
   arrange(microbe)
 
-trait_bact <- parm_all %>%
+trait_bact <- parm_treatonly %>%
   filter(microbe %in% c("Bacillus subtilis", "Pseudomonas mandelii",
                                                "Acinetobacter nectaris",
                                                "Rosenbergiella nectarea",
@@ -1088,7 +1088,7 @@ trait_bact <- parm_all %>%
                                                "Pectobacterium carotovorum"))) %>%
   arrange(microbe)
 
-trait_yeast <- parm_all %>%
+trait_yeast <- parm_treatonly %>%
   filter(microbe %in% c("Rhodotorula fujisanensis",
                                                "Aureobasidium pullulans",
                                                "Starmerella bombi",
@@ -1127,7 +1127,6 @@ alpha<-as.matrix(test)[,1]
 mode(alpha)<-'numeric' #should be a named numeric matrix
 
 alpha<-alpha[tree$tip.label]
-
 
 
 
