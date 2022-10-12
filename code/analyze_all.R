@@ -1051,10 +1051,13 @@ edgelabels(tree$edge.length, font=2)
 ## okay so I just realized this is not quite idea;. I think I want to run this seperately on each treatment?
 
 # get mean alpha and mu and se for each
+
 tree_trait <- parm_treatonly %>%
   group_by(microbe)%>%
   summarise(mean_A = mean(scaled.A),
-            mean_mu = mean(scaled.mu)) %>%
+            mean_mu = mean(scaled.mu),
+            se_A = std.error(scaled.A),
+            sd_mu = std.error(scaled.mu)) %>%
     ungroup()%>%
   mutate(microbe =  factor(microbe, levels = c("Bacillus subtilis",
                                                "Pseudomonas mandelii",
@@ -1070,15 +1073,21 @@ tree_trait <- parm_treatonly %>%
                                                "Metschnikowia reukaufii"   ))) %>%
   arrange(microbe)
 
+
+
+
 trait_bact <- parm_treatonly %>%
   filter(microbe %in% c("Bacillus subtilis", "Pseudomonas mandelii",
                                                "Acinetobacter nectaris",
                                                "Rosenbergiella nectarea",
                                                "Pantoea agglomerans",
                                                "Pectobacterium carotovorum"))%>%
+  droplevels()%>%
   group_by(microbe)%>%
   summarise(mean_A = mean(scaled.A),
-            mean_mu = mean(scaled.mu)) %>%
+            mean_mu = mean(scaled.mu),
+            se_A = std.error(scaled.A),
+            sd_mu = std.error(scaled.mu)) %>%
     ungroup()%>%
   mutate(microbe =  factor(microbe, levels = c("Bacillus subtilis",
                                                "Pseudomonas mandelii",
@@ -1097,7 +1106,9 @@ trait_yeast <- parm_treatonly %>%
                                                "Metschnikowia reukaufii"))%>%
   group_by(microbe)%>%
   summarise(mean_A = mean(scaled.A),
-            mean_mu = mean(scaled.mu)) %>%
+            mean_mu = mean(scaled.mu),
+            se_A = std.error(scaled.A),
+            sd_mu = std.error(scaled.mu)) %>%
     ungroup()%>%
   mutate(microbe =  factor(microbe, levels = c("Rhodotorula fujisanensis",
                                                "Aureobasidium pullulans",
@@ -1123,25 +1134,56 @@ test<-tree_trait%>%
   remove_rownames %>%
   column_to_rownames(var="microbe")
 
+
+# create named numeric vectors for all the data to be mapped onto phylogenetic tree
 alpha<-as.matrix(test)[,1]
 mode(alpha)<-'numeric' #should be a named numeric matrix
 
 alpha<-alpha[tree$tip.label]
 
+se_a<-as.matrix(test)[,3]
+mode(se_a)<-'numeric' #should be a named numeric matrix
+
+se_a<-se_a[tree$tip.lab]
+
+           
+mu<-as.matrix(test)[,2]
+mode(mu)<-'numeric' #should be a named numeric matrix
+
+mu<-mu[tree$tip.label]
 
 
+se_mu<-as.matrix(test)[,4]
+mode(se_mu)<-'numeric' #should be a named numeric matrix
+
+se_mu<-se_mu[tree$tip.lab]
 
 
-phylosig(tree, alpha, se = NULL, method="lambda", test=TRUE)
-phylosig(tree, all_x, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
+# analysis on full tree
+phylosig(tree, alpha, se = se_a, method="lambda", test=TRUE)
+phylosig(tree, alpha, se = se_a, method="K", test=TRUE, nsim=1000, start=NULL,
    control=list())
 
-phylosig(tree_bact, bact_x, se = NULL, method="lambda", test=TRUE)
-phylosig(tree_bact, bact_x, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
+phylosig(tree, mu, se = se_mu, method="lambda", test=TRUE)
+phylosig(tree, mu, se = se_mu, method="K", test=TRUE, nsim=1000, start=NULL,
    control=list())
 
-phylosig(tree_yeast, yeast_x, se = NULL, method="lambda", test=TRUE)
-phylosig(tree_yeast, yeast_x, method="K", test=TRUE, nsim=1000, se=NULL, start=NULL,
+# analysis on just bacteria
+phylosig(tree_bact, alpha, se = se_a, method="lambda", test=TRUE)
+phylosig(tree_bact, alpha, se = se_a, method="K", test=TRUE, nsim=1000, start=NULL,
+   control=list())
+
+phylosig(tree_bact, mu, se = se_mu, method="lambda", test=TRUE)
+phylosig(tree_bact, mu, se = se_mu, method="K", test=TRUE, nsim=1000, start=NULL,
+   control=list())
+
+# analysis on just fungi
+phylosig(tree_yeast, alpha, se = se_a, method="lambda", test=TRUE)
+phylosig(tree_yeast, alpha, se = se_a, method="K", test=TRUE, nsim=1000, start=NULL,
+   control=list())
+
+phylosig(tree_yeast, mu, se = se_mu, method="lambda", test=TRUE)
+phylosig(tree_yeast, mu, se = se_mu, method="K", test=TRUE, nsim=1000, start=NULL,
    control=list())
 
 
