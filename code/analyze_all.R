@@ -944,7 +944,6 @@ sf5_noscale <- parm_all %>%
   ggplot() +
   geom_boxplot(aes(x=kingdom, y=A.model, fill = kingdom),outlier.shape = NA, size=.7) +
   geom_jitter(aes(x=kingdom, y=A.model, color = str_wrap(microbe, 15)), size = 1.8, alpha = .5) +
-  geom_hline(yintercept=1)+ 
   ylab("Max OD")+
   xlab("Kingdom")+
   labs(color = "Microbes", fill="Kingdom")+
@@ -966,7 +965,7 @@ sf5 <- ggarrange(sf5_noscale, sf5_kingdom, labels=c("a","b"),
 sf5
 ggsave(file="final_graphs/SF5.svg", plot=sf5, width=200, height=135, units = "mm")
 ggsave(file="final_graphs/SF5.pdf", plot=sf5, width=200, height=135, units = "mm")
-ggsave(file="final_graphs/SF5_log.tiff", plot=sf5, width=200, height=135, units = "mm", dpi=300)
+ggsave(file="final_graphs/SF5.tiff", plot=sf5, width=200, height=135, units = "mm", dpi=300)
 
 # and then also one thats facetted 
 # itd be nice to have a grouped facet like margins() does in facet_grid
