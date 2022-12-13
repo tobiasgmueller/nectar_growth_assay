@@ -10,7 +10,6 @@
 # first load packages and all that good stuff
 ### packages ####
 
-library(dplyr)
 library(DescTools)
 library(rstatix)
 library(ggplot2)
